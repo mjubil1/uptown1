@@ -8,9 +8,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
-import { HomePage } from '../app/home/home';
-import { LoginPage } from '../app/login/login';
-import { RegisterPage } from '../app/register/register';
+import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
 
 import { Facebook } from '@ionic-native/facebook';
 
