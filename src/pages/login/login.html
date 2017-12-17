@@ -4,7 +4,17 @@
     <div> 
         <img src="../assets/img/uptown.png"/>
     </div>
-  
+    
+    <div *ngIf="auth.user | async; then authenticated">
+            <!-- template will replace this div -->
+    </div>
+
+    <ng-template #authenticated>
+        <div *ngIf="auth.user | async as user">
+            <h3>Hello, {{ user.displayName }}</h3>
+            <img [src]="user.photoURL">
+        </div>
+    </ng-template>
 
     <!-- Credentials -->
     <div class="container">
@@ -33,13 +43,13 @@
         
     <!--Connect With Facebook or Google-->
     <ion-list class="socialBtn">
-        <button (click)="googleLogin()">
+        <button (click)="auth.googleLogin()">
             <ion-icon name="logo-googleplus"></ion-icon> 
         </button>
 
         <button (click)="facebookLogin()">
             <ion-icon name="logo-facebook"></ion-icon>
-        </button>
+        </button>  
     </ion-list>
 </ion-content>
     

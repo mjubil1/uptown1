@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
-//import { LoginPage } from '../app/pages/login/login';
+import { LoginPage } from '../pages/login/login';
 import { Splashscreen } from 'ionic-native';
 //import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { RegisterPage } from '../pages/register/register';
+//import { RegisterPage } from '../pages/register/register';
 
 @Component({
   templateUrl: 'app.html'
-})
+})   
 export class MyApp {
-  rootPage:any = RegisterPage;
+  rootPage:any = LoginPage;
 
   constructor(platform: Platform) 
   {

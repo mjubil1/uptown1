@@ -8,6 +8,7 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 //import { Facebook } from '@ionic-native/facebook';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
+import { AuthService } from '../../core/auth.service';
 
 import { HomePage } from '../home/home';
 
@@ -33,6 +34,7 @@ export class LoginPage {
               public navParams: NavParams,
               private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
+              public auth: AuthService
               /*private fb: Facebook*/) 
   {
 

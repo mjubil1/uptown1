@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AuthService } from '../core/auth.service';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
@@ -45,6 +46,7 @@ import { Facebook } from '@ionic-native/facebook';
     RegisterPage
   ],
   providers: [
+    AuthService,
     StatusBar,
     SplashScreen,
     AngularFireAuth,
