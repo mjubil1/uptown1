@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 //import { Router } from '@angular/router';
 
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 
@@ -37,6 +37,11 @@ export class AuthService {
 
     googleLogin() {
       const provider = new firebase.auth.GoogleAuthProvider()
+      return this.oAuthLogin(provider);
+    }    
+
+    facebookLogin() {
+      const provider = new firebase.auth.FacebookAuthProvider()
       return this.oAuthLogin(provider);
     }
 

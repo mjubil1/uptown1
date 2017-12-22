@@ -1,8 +1,8 @@
 import { Component, /*ViewChild*/ } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AngularFireAuth } from 'angularfire2/auth';
+//import { AngularFireAuth } from 'angularfire2/auth';
 
-import { LoginPage } from '../login/login';
+//import { LoginPage } from '../login/login';
 
 
 /**
@@ -18,16 +18,20 @@ import { LoginPage } from '../login/login';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-
-
-  //Variables
-  fName = " ";
-  lName = " ";
-  email = " ";
-  password = " ";
-  gender = " ";
   
-  constructor(private fire: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams) 
+  //Variables
+  fName: string;
+  lName: string;
+  email: string;
+  password: string;
+
+  data = {};
+  genders = ['Male', 'Female'];
+
+  constructor(/*private fire: AngularFireAuth,*/
+              public navCtrl: NavController, 
+              public navParams: NavParams,
+              ) 
   {}
 
   ionViewDidLoad() {
@@ -38,34 +42,16 @@ export class RegisterPage {
   //@ViewChild('email') email;
   //@ViewChild('password') password;
   
+
   registerUser() {
-    this.fire.auth.createUserWithEmailAndPassword(this.email, this.password)
-    .catch(function(error) {      
-      //Handles Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      if(errorCode == 'auth/email-already-in-use') {
-        alert('The email is already in use. ');
-      } else {
-        alert(errorMessage);
-      }
+    this.fName;
+    this.lName;
+    this.email;
+    this.password;
 
-      if(errorCode == 'auth/invalid-email') {
-        alert('The email is not valid. ');
-      } else {
-        alert(errorMessage);
-      }
+    console.log(this.data);
+    //this.fire.auth.createUserWithEmailAndPassword();
 
-      if(errorCode == 'auth/weak-password') {
-        alert('The password is not strong enough. ');
-      } else {
-        alert(errorMessage);
-      }
-      console.log(error);
-
-      this.navCtrl.push(LoginPage);        
-     
-    });
     }
 }
 

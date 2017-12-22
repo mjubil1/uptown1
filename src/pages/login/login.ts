@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 //import { Router } from "@angular/router";
 
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 //import { Facebook } from '@ionic-native/facebook';

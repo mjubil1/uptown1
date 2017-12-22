@@ -1,37 +1,76 @@
 <ion-content padding>
 
     <!-- Registration layout -->
-    <form method="post">
+    <form #myForm="ngForm">
       <ion-list>
         <ion-item>
-          <ion-label>First name</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-label for="firstName">First name</ion-label> 
+          <ion-input type="text" id="firstName" 
+                     ngControl="fName"
+                     required></ion-input>
         </ion-item>
+        <div [hidden]="fName.valid || fName.pristine"
+             class="alert-danger">
+          First name is required
+        </div>
         <ion-item>
-          <ion-label>Last name</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-label for="lastName">Last name</ion-label>
+          <ion-input type="text"  id="lastName" 
+                     ngControl="lName" 
+                     required
+                     ></ion-input>
         </ion-item>
+        <div [hidden]="lName.valid || lName.pristine"
+             class="alert-danger">
+          Last name is required
+        </div>
         <ion-item>
-          <ion-label>Email</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-label for="usrEmail">Email</ion-label>
+          <ion-input type="text"  id="usrEmail" 
+                     [(ngModel)]="data.email"  name="usrEmail" 
+                     required
+                     #myEmail="ngModel"></ion-input> 
         </ion-item> 
+        <div [hidden]="myEmail.valid || myEmail.pristine"
+             class="alert-danger">
+          Email is required
+        </div> 
         <ion-item>
-          <ion-label>Password</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-label for="pwd">Password</ion-label>
+          <ion-input type="password" id="pwd" 
+                     [(ngModel)]="data.password"  name="pwd" 
+                     required
+                     #pwd="ngModel"></ion-input>            
         </ion-item>
+        <div [hidden]="pwd.valid || pwd.pristine"
+             class="alert-danger">
+          Password is required
+        </div> 
         <ion-item>
-          <ion-label>Confirm Password</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-label for="conPwd">Confirm Password</ion-label>
+          <ion-input type="password" id="conPwd"
+                     [(ngModel)]="data.conPassword" name="conPwd"
+                     required
+                     ></ion-input>  
         </ion-item>
+        <div [hidden]="pwd.valid || pwd.pristine"
+             class="alert-danger">
+          Confirm password is required
+        </div>
         <ion-item>
           <ion-label>Gender</ion-label>
-          <ion-input type="text"></ion-input>
+          <select>
+            <option *ngFor="let gender of genders" [value]="gender" 
+                    >{{gender}}</option>
+          </select>
         </ion-item>
-      </ion-list>
+      </ion-list> 
     
       <!-- Sign up button-->
       <div padding>
-        <button class="signUp" ion-button (click)="registerUser()">Sign up</button>
+        <button type="submit" class="signUp" 
+                (click)="registerUser(); myForm.reset()"
+                [disabled]="!myForm.form.valid">Sign up</button>
       </div>
     </form>
 </ion-content>
