@@ -1,7 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AuthService } from "../../core/auth.service";
+import { AuthService } from "../../services/auth.service";
 //import { LoginPage } from '../login/login';
 import { LoadingController, AlertController } from "ionic-angular";
 import { NgForm } from '@angular/forms';
@@ -30,7 +30,7 @@ export class RegisterPage implements OnInit {
   
   }
   
-  onSignup(form: NgForm) {
+  onSignUp(form: NgForm) {
     const loading = this.loadingCtrl.create({
       content:'Signing you up...'
     });
