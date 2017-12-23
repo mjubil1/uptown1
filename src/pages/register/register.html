@@ -3,16 +3,14 @@
         <!-- Registration layout -->
         <form #myForm="ngForm" (ngSubmit)="onSignUp(myForm)">
           <ion-list class="wrapper">
-          <div class="input-wrapper">                  
             <ion-item class="item item-trns" id="item1">
                 <ion-input type="text"
                            name="fName"
                            #fname = "ngModel" 
                            ngModel
-                           placeholder="First name"
+                           placeholder="FIRST NAME"
                            required></ion-input>
             </ion-item>
-          </div>
             <div [hidden]="fname.valid || fname.pristine"
                  class="alert-danger">
               First name is required
@@ -22,7 +20,7 @@
                          name="lName"
                          #lname = "ngModel" 
                          ngModel
-                         placeholder="Last name"                         
+                         placeholder="LAST NAME"                         
                          required></ion-input>
             </ion-item>
           <div [hidden]="lname.valid || lname.pristine"
@@ -34,7 +32,7 @@
                        name="usrEmail"
                        #myEmail = "ngModel" 
                        ngModel
-                       placeholder="Email"                       
+                       placeholder="EMAIL"                       
                        required></ion-input>
                 </ion-item>
                 <div [hidden]="myEmail.valid || myEmail.pristine"
@@ -46,7 +44,7 @@
                                name="pwd"
                                #pwd = "ngModel" 
                                ngModel
-                               placeholder="Password"                               
+                               placeholder="PASSWORD"                               
                                required></ion-input>
                 </ion-item>
                 <div [hidden]="pwd.valid || pwd.pristine"
@@ -58,7 +56,7 @@
                                name="conPwd"
                                #conpwd = "ngModel" 
                                ngModel
-                               placeholder="Confirm password"                               
+                               placeholder="CONFIRM PASSOWRD"                               
                                required></ion-input>
                 </ion-item>
                 <div [hidden]="conpwd.valid || conpwd.pristine"
@@ -66,24 +64,18 @@
                   Confirm password is required
                 </div>
                 <ion-item class="item item-trns">
-                  <ion-input type="radio" 
-                             name="sex"
-                             value="Male"
-                             ngModel 
-                             placeholder="Gender"                             
-                             >Male</ion-input>
-                  <ion-input type="radio" 
-                             name="sex" 
-                             value="Female"
-                             ngModel
-                             >Female</ion-input>           
+                  <ion-label>GENDER</ion-label>
+                  <ion-select name="gender" ngModel>
+                    <ion-option value="female">Male</ion-option>
+                    <ion-option value="male">Female</ion-option>
+                  </ion-select>           
                 </ion-item>
             
           </ion-list>      
       
           <!-- Sign up button-->
           <div padding>
-            <button ion-button type="submit" class="signUp" 
+            <button ion-button type="submit" class="signUp" id="bold"
                     [disabled]="!myForm.form.valid">Sign up</button>
           </div>
         </form >
