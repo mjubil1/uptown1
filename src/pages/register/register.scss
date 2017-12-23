@@ -11,20 +11,11 @@ page-register {
        
     .alert-danger 
     {
-        border: 1px solid;
+        font-family: HelveticaNeue-Medium;
+        font-size: 11px; 
         color: #D8000c;
-        padding: 5px 7px 5px 5px;
-        background-color:#FFBABA;    
-    }
-  
-    .ng-valid[required], .ng-valid.required 
-    {
-        border-left: 5px solid #42A948; 
-    }
-
-    .ng-invalid:not(form)
-    {
-        border-left: 5px solid #a94442;
+        margin-left: 12.3px;        
+        text-align: left;
     }
 
     .signUp 
@@ -45,6 +36,18 @@ page-register {
         clear: none;
         border-color: rgba(0,0,0,0);
         background-color: rgba(0,0,0,0);
+    }
+
+    .photo 
+    {
+        background: rgba(216,216,216,0.13);        
+        border-radius: 100%;
+        margin-top: 15%;
+        display: inline-block;
+        width: 40%;
+        height: 20%; 
+        margin: 0 auto;
+        margin-left: 30%;
     }
 
     .text-input::-moz-placeholder 
@@ -70,7 +73,9 @@ page-register {
 
     form 
     {
-        margin-top: 50px;
+        margin-top: 125px;
+        margin: 0 !important;
+        padding: 0 !important;
         display: inline-block;
         text-align: center;
     }
@@ -89,18 +94,27 @@ page-register {
         margin: 5px !important;
         padding: 0 !important;
         margin-bottom: -24px !important;
-        margin-left: 12.3px;
+        margin-left: 0px !important;
         font-size: 12px;
         color: #FFFFFF !important;
     }
 
-    ion-label {
+    ion-icon 
+    {
+        font-size: 70px;
+        margin-top: 15%;
+        margin-left: 27%;
+        display: inline-block;        
+    }
+
+    ion-label 
+    {
         font-family: HelveticaNeue-Medium;
         letter-spacing: 1.43;
         margin: 5px !important;
         padding: 0 !important;
         margin-bottom: -24px !important;
-        margin-left: 12.3px;
+        margin-left: 0px !important;
         font-size: 12px;
         color: #FFFFFF !important;
     }

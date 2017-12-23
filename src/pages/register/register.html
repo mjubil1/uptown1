@@ -1,6 +1,11 @@
 <ion-content padding>
     
         <!-- Registration layout -->
+        <div class="photo">
+          <a href="">
+            <ion-icon name="ios-camera-outline"></ion-icon>
+          </a>
+        </div>
         <form #myForm="ngForm" (ngSubmit)="onSignUp(myForm)">
           <ion-list class="wrapper">
             <ion-item class="item item-trns" id="item1">
@@ -13,7 +18,7 @@
             </ion-item>
             <div [hidden]="fname.valid || fname.pristine"
                  class="alert-danger">
-              First name is required
+              This is required
             </div>
             <ion-item class="item item-trns">
               <ion-input type="text" 
@@ -25,7 +30,7 @@
             </ion-item>
           <div [hidden]="lname.valid || lname.pristine"
                 class="alert-danger">
-            Last name is required
+            This is required
           </div>
           <ion-item class="item item-trns">
             <ion-input type="email" 
@@ -37,7 +42,7 @@
                 </ion-item>
                 <div [hidden]="myEmail.valid || myEmail.pristine"
                      class="alert-danger">
-                  Email is required
+                  This is required
                 </div>
                 <ion-item class="item item-trns">
                     <ion-input type="password" 
@@ -49,7 +54,7 @@
                 </ion-item>
                 <div [hidden]="pwd.valid || pwd.pristine"
                      class="alert-danger">
-                  Password is required
+                  This is required
                 </div>
                 <ion-item class="item item-trns">
                     <ion-input type="password" 
@@ -61,10 +66,10 @@
                 </ion-item>
                 <div [hidden]="conpwd.valid || conpwd.pristine"
                      class="alert-danger">
-                  Confirm password is required
+                  This is required
                 </div>
                 <ion-item class="item item-trns">
-                  <ion-label>GENDER</ion-label>
+                  <ion-label>GENDER(optional)</ion-label>
                   <ion-select name="gender" ngModel>
                     <ion-option value="female">Male</ion-option>
                     <ion-option value="male">Female</ion-option>
