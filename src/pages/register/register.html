@@ -1,79 +1,81 @@
 <ion-content padding>
     
         <!-- Registration layout -->
-        <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
-          <ion-list>
-            <ion-item>
-              <ion-label>First Name</ion-label>
-              <ion-input type="text" 
-                         name="fName"
-                         #fname = "ngModel" 
-                         [(ngModel)] = "user.fname"
-                         required></ion-input>
+        <form #myForm="ngForm" (ngSubmit)="onSignUp(myForm)">
+          <ion-list class="wrapper">
+          <div class="input-wrapper">                  
+            <ion-item class="item item-trns" id="item1">
+                <ion-input type="text"
+                           name="fName"
+                           #fname = "ngModel" 
+                           ngModel
+                           placeholder="First name"
+                           required></ion-input>
             </ion-item>
+          </div>
             <div [hidden]="fname.valid || fname.pristine"
                  class="alert-danger">
               First name is required
             </div>
-            <ion-item>
-              <ion-label>Last Name</ion-label>
+            <ion-item class="item item-trns">
               <ion-input type="text" 
                          name="lName"
                          #lname = "ngModel" 
-                         [(ngModel)] = "user.lname" 
+                         ngModel
+                         placeholder="Last name"                         
                          required></ion-input>
             </ion-item>
           <div [hidden]="lname.valid || lname.pristine"
                 class="alert-danger">
             Last name is required
           </div>
-          <ion-item>
-            <ion-label>Email</ion-label>
-            <ion-input type="text" 
+          <ion-item class="item item-trns">
+            <ion-input type="email" 
                        name="usrEmail"
                        #myEmail = "ngModel" 
-                       [(ngModel)] = "user.email"
+                       ngModel
+                       placeholder="Email"                       
                        required></ion-input>
                 </ion-item>
                 <div [hidden]="myEmail.valid || myEmail.pristine"
                      class="alert-danger">
                   Email is required
                 </div>
-                <ion-item>
-                    <ion-label>Password</ion-label>
+                <ion-item class="item item-trns">
                     <ion-input type="password" 
                                name="pwd"
                                #pwd = "ngModel" 
-                               [(ngModel)] = "user.pwd"
+                               ngModel
+                               placeholder="Password"                               
                                required></ion-input>
                 </ion-item>
                 <div [hidden]="pwd.valid || pwd.pristine"
                      class="alert-danger">
                   Password is required
                 </div>
-                <ion-item>
-                    <ion-label>Confirm password</ion-label>
+                <ion-item class="item item-trns">
                     <ion-input type="password" 
                                name="conPwd"
                                #conpwd = "ngModel" 
-                               [(ngModel)] = "user.conPwd"
+                               ngModel
+                               placeholder="Confirm password"                               
                                required></ion-input>
                 </ion-item>
                 <div [hidden]="conpwd.valid || conpwd.pristine"
                      class="alert-danger">
                   Confirm password is required
                 </div>
-                <ion-item>
-                  <ion-label>Gender</ion-label>
+                <ion-item class="item item-trns">
                   <ion-input type="radio" 
                              name="sex"
-                             value="Male" 
-                             [(ngModel)] = "user.gender"
+                             value="Male"
+                             ngModel 
+                             placeholder="Gender"                             
                              >Male</ion-input>
                   <ion-input type="radio" 
                              name="sex" 
                              value="Female"
-                             [(ngModel)] = "user.gender"
+                             ngModel
                              >Female</ion-input>           
                 </ion-item>
             
@@ -81,9 +83,8 @@
       
           <!-- Sign up button-->
           <div padding>
-            <button type="submit" class="signUp"
-                   (click)="onSignup(myForm)" 
-                   [disabled]="!myForm.form.valid">Sign up</button>
+            <button ion-button type="submit" class="signUp" 
+                    [disabled]="!myForm.form.valid">Sign up</button>
           </div>
         </form >
   </ion-content>

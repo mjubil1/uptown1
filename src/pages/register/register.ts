@@ -3,7 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from "../../core/auth.service";
 //import { LoginPage } from '../login/login';
+import { LoadingController, AlertController } from "ionic-angular";
 import { NgForm } from '@angular/forms';
+//import { Observable } from 'rxjs/Observable';
 
 @IonicPage()
 @Component({
@@ -11,26 +13,16 @@ import { NgForm } from '@angular/forms';
   templateUrl: 'register.html',
 })
 export class RegisterPage implements OnInit {
-   
-  //Variables
-  //fName: string;
-  //lName: string;
-  //email: string;
-  //password: string;
-  //conPass: string;
-  //gender: string;
 
-  user = {};
-
-  constructor(private authService: AuthService,
+  constructor(private alertCtrl: AlertController,
+              private authService: AuthService,
+              private loadingCtrl: LoadingController,
               public navCtrl: NavController, 
               public navParams: NavParams) {}
   
   //ViewChild - To get access to a component and its methods, we can use @ViewChild decorator
   @ViewChild('fname') fname;
   @ViewChild('lname') lname;
-  @ViewChild('myEmail') email;
-  @ViewChild('pwd') password;
   @ViewChild('conpwd') conPass;
   @ViewChild('gender') gender;
   
@@ -38,16 +30,26 @@ export class RegisterPage implements OnInit {
   
   }
   
-  onSubmit(form: NgForm) {
-    
-  }
-
   onSignup(form: NgForm) {
+    const loading = this.loadingCtrl.create({
+      content:'Signing you up...'
+    });
+    loading.present();
     this.authService.signUp(form.value.usrEmail,form.value.pwd)
-    .then(
-      data => console.log(data)
-    )
-    .catch(error => console.log(error));
-  }
+      .then(
+        data => {
+          loading.dismiss();
+        })
+      .catch(
+        error => {
+          loading.dismiss();
+          const alert = this.alertCtrl.create({
+            title:'Singup failed',
+            message: error.message,
+            buttons:['Ok']
+          })
+          alert.present();
+        }) ;
+    }
 }
 
