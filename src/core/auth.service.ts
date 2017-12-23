@@ -35,6 +35,11 @@ export class AuthService {
         })
     }
 
+
+    signUp(email:string, password: string) {
+      return this.afAuth.auth.createUserWithEmailAndPassword(email,password);
+ 
+    }
     googleLogin() {
       const provider = new firebase.auth.GoogleAuthProvider()
       return this.oAuthLogin(provider);

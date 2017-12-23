@@ -8,7 +8,7 @@
               <ion-input type="text" 
                          name="fName"
                          #fname = "ngModel" 
-                         ngModel
+                         [(ngModel)] = "user.fname"
                          required></ion-input>
             </ion-item>
             <div [hidden]="fname.valid || fname.pristine"
@@ -20,7 +20,7 @@
               <ion-input type="text" 
                          name="lName"
                          #lname = "ngModel" 
-                         ngModel
+                         [(ngModel)] = "user.lname" 
                          required></ion-input>
             </ion-item>
           <div [hidden]="lname.valid || lname.pristine"
@@ -32,7 +32,7 @@
             <ion-input type="text" 
                        name="usrEmail"
                        #myEmail = "ngModel" 
-                       ngModel
+                       [(ngModel)] = "user.email"
                        required></ion-input>
                 </ion-item>
                 <div [hidden]="myEmail.valid || myEmail.pristine"
@@ -44,7 +44,7 @@
                     <ion-input type="password" 
                                name="pwd"
                                #pwd = "ngModel" 
-                               ngModel
+                               [(ngModel)] = "user.pwd"
                                required></ion-input>
                 </ion-item>
                 <div [hidden]="pwd.valid || pwd.pristine"
@@ -56,7 +56,7 @@
                     <ion-input type="password" 
                                name="conPwd"
                                #conpwd = "ngModel" 
-                               ngModel
+                               [(ngModel)] = "user.conPwd"
                                required></ion-input>
                 </ion-item>
                 <div [hidden]="conpwd.valid || conpwd.pristine"
@@ -68,12 +68,12 @@
                   <ion-input type="radio" 
                              name="sex"
                              value="Male" 
-                             ngModel
+                             [(ngModel)] = "user.gender"
                              >Male</ion-input>
                   <ion-input type="radio" 
                              name="sex" 
                              value="Female"
-                             ngModel
+                             [(ngModel)] = "user.gender"
                              >Female</ion-input>           
                 </ion-item>
             
@@ -81,7 +81,8 @@
       
           <!-- Sign up button-->
           <div padding>
-            <button type="submit" class="signUp" 
+            <button type="submit" class="signUp"
+                   (click)="onSignup(myForm)" 
                    [disabled]="!myForm.form.valid">Sign up</button>
           </div>
         </form >
