@@ -62,12 +62,45 @@ export class LoginPage {
     })
     .catch(error => {
         loading.dismiss();
+
+        //Handle errors
+        var errorCode = error.code;
+        
+        if(errorCode == 'auth/account-exists-with-different-credential') {
+          const alert = this.alertCtrl.create({
+            title: 'Signin failed!',
+            message: 'Email already associated with another account.',
+            buttons:['Ok']
+        });
+      alert.present();        
+    }
+
+        else if(errorCode == 'auth/user-disabled') {
+          const alert = this.alertCtrl.create({
+            title: 'Signin failed!',
+            message: 'User account is disabled.',
+            buttons:['Ok']
+        });
+      alert.present();        
+    }
+
+      else if(errorCode == 'auth/user-not-found') {
         const alert = this.alertCtrl.create({
           title: 'Signin failed!',
-          message: error.message,
+          message: 'User was not found.',
           buttons:['Ok']
-    });
-    alert.present();
+      });
+    alert.present();        
+  }
+
+    if(errorCode == 'auth/wrong-password') {
+      const alert = this.alertCtrl.create({
+        title: 'Signin failed!',
+        message: 'Invalid password.',
+        buttons:['Ok']
+      });
+    alert.present();        
+  }
   });
 }
   /*Login for facebook authentication */

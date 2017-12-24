@@ -54,14 +54,9 @@ export class AuthService {
     
   }
 
-  signIn(email:string,password: string) 
+  signIn(email:string, password: string) 
   {
-    return this.afAuth.auth.signInWithEmailAndPassword(email,password)
-    .then((authData) => {
-
-    }).catch(function(error) {
-      
-    });
+    return this.afAuth.auth.signInWithEmailAndPassword(email,password);
   }
   googleLogin() 
   {
