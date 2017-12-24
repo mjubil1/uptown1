@@ -1,5 +1,15 @@
 page-pagination {
 
+    #btn1
+    {
+        background-color: grey;
+    }
+
+    #btn2
+    {
+        background-color: yellow;
+    }
+
     ion-content
     { 
         position: absolute;
@@ -14,32 +24,31 @@ page-pagination {
         margin-left: 35%;
     }
 
-    .btn-btn1 
+    .btn-container .button 
     {
+        color: white;
+        padding: 25px 51px;
+        text-align: center;
+        text-decoration: none;
         font-weight: bold;
-        display: inline;
+        display: inline-block;
+        font-size: 16px;
         float: left;
-        width: 48%;
-        margin: 0 auto;
-        padding: 0 !important;
-        background-color:red;
     }
 
-    .btn-btn2
-    {  
-        margin: 0 auto;
-        font-weight: bold;
-        display: inline;
-        padding: 0 !important;
-        float: right;
-        background-color: yellow;
-        width: 49%;
+    .btn-container .button:not(:last-child) {
+        border-right: none; /* Prevent double borders */
     }
 
     .btn-container
     {
         width: 100%;
-        position: absolute;            
+        position: absolute; 
+        margin: 0 auto;           
         bottom: 0;
+    }
+
+    .div.btn-container{
+        text-align: center;
     }
 } 
