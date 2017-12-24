@@ -1,0 +1,45 @@
+page-pagination {
+
+    ion-content
+    { 
+        position: absolute;
+        opacity: .85;
+        background: linear-gradient(to bottom, rgba(133,133,133,1), rgba(0,0,0,.25)), url("../assets/img/loginBackground.png");
+    }
+
+    img {
+        height: 65px;
+        width: 117px;
+        margin-top: 50%;
+        margin-left: 35%;
+    }
+
+    .btn-btn1 
+    {
+        font-weight: bold;
+        display: inline;
+        float: left;
+        width: 48%;
+        margin: 0 auto;
+        padding: 0 !important;
+        background-color:red;
+    }
+
+    .btn-btn2
+    {  
+        margin: 0 auto;
+        font-weight: bold;
+        display: inline;
+        padding: 0 !important;
+        float: right;
+        background-color: yellow;
+        width: 49%;
+    }
+
+    .btn-container
+    {
+        width: 100%;
+        position: absolute;            
+        bottom: 0;
+    }
+} 

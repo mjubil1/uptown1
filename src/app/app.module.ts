@@ -12,6 +12,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { LoginPage } from '../pages/login/login';
 import { MyApp } from './app.component';
 import { RegisterPage } from '../pages/register/register';
+import { PaginationPage } from '../pages/pagination/pagination';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
@@ -31,7 +32,8 @@ import { StatusBar } from '@ionic-native/status-bar';
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    PaginationPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { StatusBar } from '@ionic-native/status-bar';
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    PaginationPage
   ],
   providers: [
     AuthService,

@@ -1,6 +1,6 @@
-import { Injectable, ViewChild } from '@angular/core';
+import { Injectable, /*ViewChild*/ } from '@angular/core';
 //import { Router } from '@angular/router';
-
+import { Observable } from 'rxjs/Observable'; 
 import firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import 'rxjs/add/operator/switchMap';
@@ -22,7 +22,8 @@ interface User {
 
 @Injectable()
 export class AuthService {
-
+  user: Observable<User>;
+    
   constructor(private afAuth: AngularFireAuth,
               /*private alertCtrl: AlertController,*/
               /*public navCtrl: NavController,*/  

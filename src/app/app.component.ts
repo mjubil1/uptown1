@@ -2,15 +2,15 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, /*NavController*/ } from 'ionic-angular';
 import { LoginPage } from '../pages/login/login';
 import { Splashscreen } from 'ionic-native';
-//import { RegisterPage } from '../pages/register/register';
 import { HomePage } from '../pages/home/home';
+import { PaginationPage } from '../pages/pagination/pagination';
 
 @Component({
   templateUrl: 'app.html'
 })          
 export class MyApp {
 
-  rootPage:any = LoginPage;
+  rootPage:any = PaginationPage;
   homePage = HomePage;
   loginPage = LoginPage;
   isAuthenticated = false;
