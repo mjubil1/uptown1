@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the PaginationPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { LoginPage } from '../login/login';
+import { RegisterPage } from '../register/register';
 
 @IonicPage()
 @Component({
@@ -18,8 +14,13 @@ export class PaginationPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PaginationPage');
+  newUser()
+  {
+    this.navCtrl.push(RegisterPage);
   }
 
+  userLogin()
+  {
+    this.navCtrl.push(LoginPage);
+  }
 }

@@ -1,6 +1,7 @@
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AuthGuard } from '../core/auth.guard';
 import { AuthService } from '../services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -15,6 +16,7 @@ import { RegisterPage } from '../pages/register/register';
 import { PaginationPage } from '../pages/pagination/pagination';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Router } from '@angular/router';
 
   // Initialize Firebase
   const fb = {
@@ -27,6 +29,18 @@ import { StatusBar } from '@ionic-native/status-bar';
   };
 
   firebase.initializeApp(fb);
+
+  const routes = [
+    {
+      path: '',
+      page: PaginationPage
+    },
+    {
+      path: '../pages/login',
+      canActivate: [AuthGuard],
+      page: LoginPage
+    }
+  ] 
 @NgModule({
   declarations: [
     MyApp,
@@ -51,6 +65,7 @@ import { StatusBar } from '@ionic-native/status-bar';
     PaginationPage
   ],
   providers: [
+    AuthGuard,
     AuthService,
     StatusBar,
     SplashScreen,

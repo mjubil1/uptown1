@@ -1,37 +1,24 @@
 import { Injectable, /*ViewChild*/ } from '@angular/core';
-//import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable'; 
+//import { Observable } from 'rxjs/Observable'; 
+import { JwtHelperService } from '@auth0/angular-jwt';
 import firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import 'rxjs/add/operator/switchMap';
-//import { /*NavController,*/ AlertController } from 'ionic-angular';
-//import { HomePage } from '../pages/home/home';
-//import { LoginPage } from '../pages/login/login';
-//import { RegisterPage } from '../pages/register/register';
-
-interface User {
-  uid: string;
-  fname: string;
-  lname: string;
-  password: string;
-  gender: string;
-  email: string;
-  photoURL?: string;
-  displayName?: string;
-}
 
 @Injectable()
 export class AuthService {
-  user: Observable<User>;
-    
-  constructor(private afAuth: AngularFireAuth,
-              /*private alertCtrl: AlertController,*/
-              /*public navCtrl: NavController,*/  
-              /*private router: Router*/) 
-  {
-  
-  }
 
+  constructor(private afAuth: AngularFireAuth,
+              public jwtHelper: JwtHelperService
+              ) 
+  {}
+
+  public isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+
+    //Check whether the token is expired and return true or false
+    return !this.jwtHelper.isTokenExpired(token);
+  }
 
   signUp(fname: string, lname: string, email:string, password: string, gender: string) 
   {
@@ -81,10 +68,10 @@ export class AuthService {
 
   }
 
-  getActiveUser() 
+  /*getUserLoggedIn() 
   {
-    return firebase.auth().currentUser;
-  }
+    return this.firebase.auth().currentUser;
+  }*/
 }
 
 
