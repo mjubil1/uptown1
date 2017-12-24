@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { AlertController,NavController, NavParams, LoadingController } from 'ionic-angular';
 //import { Router } from "@angular/router";
 
 import firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { AuthService } from "../../services/auth.service";
 //import { Facebook } from '@ionic-native/facebook';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
-import { AuthService } from '../../services/auth.service';
 
 import { HomePage } from '../home/home';
+import { NgForm } from '@angular/forms';
 
 interface User {
   uid: string;
@@ -25,16 +26,15 @@ interface User {
 export class LoginPage {
 
   //Variables
-  uid: string;
-  email: string;
-  displayName?: string;
   user: Observable<User>;
   
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
+  constructor(private loadingCtrl: LoadingController,
               private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
-              public auth: AuthService
+              private alertCtrl: AlertController,
+              private authService: AuthService,
+              public navParams: NavParams,
+              public navCtrl: NavController,
               /*private fb: Facebook*/) 
   {
 
@@ -49,24 +49,27 @@ export class LoginPage {
     })
   }
      
-  /*Login with basic email and password authentication */
-  emailPasswordLogin() {
-    //local variables
-    var userEmail, password;
-    firebase.auth().signInWithEmailAndPassword(userEmail, password).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      
-      if(errorCode == 'auth/wrong-password') {
-        alert('Wrong password.');
-      } else {
-        alert(errorMessage);
-      }
-      console.log(error);
+  
+  onSignIn(form: NgForm) {
+    const loading = this.loadingCtrl.create({
+      content:'Signing you in...'
     });
-  }
-              
+    loading.present();
+    this.authService.signIn(form.value.email,form.value.pwd)
+    .then(data => {
+      loading.dismiss();
+      this.navCtrl.push(HomePage);        
+    })
+    .catch(error => {
+        loading.dismiss();
+        const alert = this.alertCtrl.create({
+          title: 'Signin failed!',
+          message: error.message,
+          buttons:['Ok']
+    });
+    alert.present();
+  });
+}
   /*Login for facebook authentication */
   /*facebookLogin() {
   this.fb.login(['email']).then((loginResponse) => {

@@ -2,7 +2,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from "../../services/auth.service";
-//import { LoginPage } from '../login/login';
+import { LoginPage } from '../login/login';
 import { LoadingController, AlertController } from "ionic-angular";
 import { NgForm } from '@angular/forms';
 //import { Observable } from 'rxjs/Observable';
@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'page-register',
   templateUrl: 'register.html',
-})
+}) 
 export class RegisterPage implements OnInit {
 
   constructor(private alertCtrl: AlertController,
@@ -21,10 +21,7 @@ export class RegisterPage implements OnInit {
               public navParams: NavParams) {}
   
   //ViewChild - To get access to a component and its methods, we can use @ViewChild decorator
-  @ViewChild('fname') fname;
-  @ViewChild('lname') lname;
-  @ViewChild('conpwd') conPass;
-  @ViewChild('gender') gender;
+  
   
   ngOnInit() {
   
@@ -35,10 +32,12 @@ export class RegisterPage implements OnInit {
       content:'Signing you up...'
     });
     loading.present();
-    this.authService.signUp(form.value.usrEmail,form.value.pwd)
+    this.authService.signUp(form.value.fName,form.value.lName,form.value.usrEmail,form.value.pwd,form.value.gender)
       .then(
         data => {
+          console.log("Gender ",form.value.gender);
           loading.dismiss();
+          this.navCtrl.push(LoginPage);  
         })
       .catch(
         error => {

@@ -4,43 +4,39 @@
     <div> 
         <img src="../assets/img/uptown.png"/>
     </div>
-    
-    <div *ngIf="auth.user | async; then authenticated">
-            <!-- template will replace this div -->
-    </div>
-
-    <ng-template #authenticated>
-        <div *ngIf="auth.user | async as user">
-            <h3>Hello, {{ user.displayName }}</h3>
-            <img [src]="user.photoURL">
-        </div>
-    </ng-template>
 
     <!-- Credentials -->
     <div class="container">
-        <ion-list> 
-            <ion-item class="email">
-                <ion-label>
-                <ion-icon name="mail"></ion-icon>
-                    EMAIL</ion-label>
-                <ion-input type= "text"></ion-input>
-            </ion-item>
-         
-            <ion-item class="password">
-                <ion-label>
-                <ion-icon name="lock"></ion-icon>
-                    PASSWORD</ion-label>
-                <ion-input type= "password"></ion-input>
-            </ion-item>
-        </ion-list>   
+        <form #myForm="ngForm" (ngSubmit)="onSignIn(myForm)">                    
+            <ion-list> 
+                <ion-item class="email">
+                    <ion-label>
+                    <ion-icon name="mail"></ion-icon>
+                        EMAIL</ion-label>
+                    <ion-input type= "text"
+                                name="email"
+                                #email="ngModel"
+                                ngModel></ion-input>
+                </ion-item>
+                
+                <ion-item class="password">
+                    <ion-label>
+                    <ion-icon name="lock"></ion-icon>
+                        PASSWORD</ion-label>
+                    <ion-input type= "password"
+                               name="pwd"
+                               #pwd="ngModel"
+                               ngModel></ion-input>
+                </ion-item>
+            </ion-list>
+            <!--Sign in Button-->
+            <div padding>
+                <button class="signIn" type="submit">Sign in</button> 
+                <p class="forgotPassword">Forgot Password?</p>
+            </div> 
+        </form>        
     </div>
-
-    <!--Sign in Button-->
-    <div>
-        <button class="signIn" (click)="emailPasswordLogin()">Sign in</button> 
-        <p class="forgotPassword">Forgot Password?</p>
-    </div>
-        
+            
     <!--Connect With Facebook or Google-->
     <ion-list class="socialBtn">
         <button (click)="auth.googleLogin()">

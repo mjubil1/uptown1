@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { Facebook } from '@ionic-native/facebook';
 import { FormsModule } from '@angular/forms';
+import * as firebase from 'firebase';
 import { HomePage } from '../pages/home/home';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { LoginPage } from '../pages/login/login';
@@ -15,7 +16,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
   // Initialize Firebase
-  const firebaseConfig = {
+  const fb = {
     apiKey: "AIzaSyCpxfsS8L98D6MgQ74kQZlBP6tCICIO18o",
     authDomain: "uptown-9ed55.firebaseapp.com",
     databaseURL: "https://uptown-9ed55.firebaseio.com",
@@ -24,6 +25,7 @@ import { StatusBar } from '@ionic-native/status-bar';
     messagingSenderId: "1033320275639"
   };
 
+  firebase.initializeApp(fb);
 @NgModule({
   declarations: [
     MyApp,
@@ -35,7 +37,7 @@ import { StatusBar } from '@ionic-native/status-bar';
     BrowserModule,
     FormsModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(fb),
     AngularFirestoreModule
   ],
   bootstrap: [IonicApp],

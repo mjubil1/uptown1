@@ -1,12 +1,12 @@
 <ion-content padding>
     
         <!-- Registration layout -->
-        <div class="photo">
-          <a href="">
-            <ion-icon name="ios-camera-outline"></ion-icon>
-          </a>
-        </div>
         <form #myForm="ngForm" (ngSubmit)="onSignUp(myForm)">
+          <div class="photo">
+            <a href="">
+              <ion-icon name="ios-camera-outline"></ion-icon>
+            </a>
+          </div>
           <ion-list class="wrapper">
             <ion-item class="item item-trns" id="item1">
                 <ion-input type="text"
@@ -33,7 +33,7 @@
             This is required
           </div>
           <ion-item class="item item-trns">
-            <ion-input type="email" 
+            <ion-input type="email"
                        name="usrEmail"
                        #myEmail = "ngModel" 
                        ngModel
@@ -45,7 +45,7 @@
                   This is required
                 </div>
                 <ion-item class="item item-trns">
-                    <ion-input type="password" 
+                    <ion-input type="password"
                                name="pwd"
                                #pwd = "ngModel" 
                                ngModel
