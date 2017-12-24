@@ -48,7 +48,22 @@ page-pagination {
         bottom: 0;
     }
 
-    .div.btn-container{
+    .div.btn-container
+    {
         text-align: center;
+    }
+
+    .txt-container
+    {
+        position: relative;
+        bottom: -150px;
+    }
+
+    .txtPag
+    {
+        text-align: center;
+        font-size: 16px;
+        color: #FFFFFF;
+        margin: 0 auto;
     }
 } 
