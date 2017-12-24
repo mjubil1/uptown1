@@ -9,17 +9,17 @@
     <div class="container">
         <form #myForm="ngForm" (ngSubmit)="onSignIn(myForm)">                    
             <ion-list> 
-                <ion-item class="email">
+                <ion-item class="item item-trns">
                     <ion-label>
                     <ion-icon name="mail"></ion-icon>
                         EMAIL</ion-label>
-                    <ion-input type= "text"
-                                name="email"
-                                #email="ngModel"
-                                ngModel></ion-input>
+                    <ion-input type= "email"
+                               name="email"
+                               #email="ngModel"
+                               ngModel></ion-input>
                 </ion-item>
                 
-                <ion-item class="password">
+                <ion-item class="item item-trns">
                     <ion-label>
                     <ion-icon name="lock"></ion-icon>
                         PASSWORD</ion-label>
@@ -30,9 +30,9 @@
                 </ion-item>
             </ion-list>
             <!--Sign in Button-->
-            <div padding>
-                <button class="signIn" type="submit">Sign in</button> 
-                <p class="forgotPassword">Forgot Password?</p>
+            <div>
+                <button class="signIn" type="submit" id="bold">Sign in</button> 
+                <p class="forgotpwd">Forgot Password?</p>
             </div> 
         </form>        
     </div>

@@ -1,9 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, NavController } from 'ionic-angular';
-import firebase from 'firebase';
+import { Platform, /*NavController*/ } from 'ionic-angular';
 import { LoginPage } from '../pages/login/login';
 import { Splashscreen } from 'ionic-native';
-import { RegisterPage } from '../pages/register/register';
+//import { RegisterPage } from '../pages/register/register';
 import { HomePage } from '../pages/home/home';
 
 @Component({
@@ -11,16 +10,16 @@ import { HomePage } from '../pages/home/home';
 })          
 export class MyApp {
 
-  rootPage:any = RegisterPage;
+  rootPage:any = LoginPage;
   homePage = HomePage;
   loginPage = LoginPage;
   isAuthenticated = false;
-  @ViewChild('nav') nav: NavController;
+  //@ViewChild('nav') nav: NavController;
    
   constructor(platform: Platform) 
   {
 
-    firebase.auth().onAuthStateChanged(user => {
+    /*firebase.auth().onAuthStateChanged(user => {
       if(user) {
         this.isAuthenticated = true;
         this.nav.setRoot(this.homePage);
@@ -28,7 +27,7 @@ export class MyApp {
         this.isAuthenticated = false;
         this.nav.setRoot(this.loginPage);
       }
-    });
+    });*/
 
     platform.ready().then(() => 
     {
