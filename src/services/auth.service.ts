@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
 import firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import 'rxjs/add/operator/switchMap';
@@ -7,17 +6,8 @@ import 'rxjs/add/operator/switchMap';
 @Injectable()
 export class AuthService {
 
-  constructor(private afAuth: AngularFireAuth,
-              public jwtHelper: JwtHelperService,
-              ) 
+  constructor(private afAuth: AngularFireAuth) 
   { }
-
-  public isAuthenticated(): boolean {
-    const token = localStorage.getItem('token');
-
-    //Check whether the token is expired and return true or false
-    return !this.jwtHelper.isTokenExpired(token);
-  }
 
   signUp(fname: string, lname: string, email:string, password: string, gender: string) 
   {
@@ -64,13 +54,8 @@ export class AuthService {
 
   logout() 
   {
-
+    firebase.auth().signOut();
   }
-
-  /*getUserLoggedIn() 
-  {
-    return this.firebase.auth().currentUser;
-  }*/
 }
 
 

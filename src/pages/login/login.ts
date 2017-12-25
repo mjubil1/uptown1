@@ -58,10 +58,16 @@ export class LoginPage {
     this.authService.signIn(form.value.email,form.value.pwd)
     .then(data => {
       loading.dismiss();
-      this.navCtrl.push(HomePage);        
+      this.navCtrl.push(HomePage).catch(err => {
+        let alert = this.alertCtrl.create ({
+          title: 'No Entry!',
+          message: 'You should not pass',
+          buttons: ['Ok']
+        })
+      })
     })
     .catch(error => {
-        loading.dismiss();
+        loading.dismiss(); 
 
         //Handle errors
         var errorCode = error.code;
