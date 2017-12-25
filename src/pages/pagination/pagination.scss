@@ -10,6 +10,21 @@ page-pagination {
         background-color: yellow;
     }
 
+    div.swiper-pagination {
+        top: 80%;
+        bottom: inherit;
+    }
+
+    //Used to change the colors of the ion-slides pager dots.
+    .swiper-pagination {
+        padding: 3px;
+        bottom:0px;
+        .swiper-pagination-bullet {
+            background: white;
+            margin: 0 3px;
+        }
+    }
+
     ion-content
     { 
         position: absolute;
