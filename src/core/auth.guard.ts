@@ -16,14 +16,14 @@ export class AuthGuard implements CanActivate {
   {
     if(!this.auth.isAuthenticated())
     {
-      console.log("AUTH GUARD LET GO");
+      console.log("ACCESS GRANTED");
       this.router.navigate(['login']);
       return true;
     }
     else
     {
-      console.log("BLOCKED BY AUTH GUARD");
-      this.router.navigate(['']);
+      console.log("ACCESS DENIED!");
+      this.router.navigate(['/login']);
       return false;
     }
   }

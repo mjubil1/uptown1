@@ -8,17 +8,13 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { Facebook } from '@ionic-native/facebook';
 import { FormsModule } from '@angular/forms';
 import * as firebase from 'firebase';
-import { HomePage } from '../pages/home/home';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { LoginPage } from '../pages/login/login';
 import { MyApp } from './app.component';
-import { RegisterPage } from '../pages/register/register';
-import { PaginationPage } from '../pages/pagination/pagination';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { Router } from '@angular/router';
 
-  // Initialize Firebase
+// Initialize Firebase
   const fb = {
     apiKey: "AIzaSyCpxfsS8L98D6MgQ74kQZlBP6tCICIO18o",
     authDomain: "uptown-9ed55.firebaseapp.com",
@@ -30,39 +26,21 @@ import { Router } from '@angular/router';
 
   firebase.initializeApp(fb);
 
-  const routes = [
-    {
-      path: '',
-      page: PaginationPage
-    },
-    {
-      path: '../pages/login',
-      canActivate: [AuthGuard],
-      page: LoginPage
-    }
-  ] 
+
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    LoginPage,
-    RegisterPage,
-    PaginationPage
   ],
   imports: [
     BrowserModule,
     FormsModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(fb),
-    AngularFirestoreModule
+    AngularFirestoreModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    RegisterPage,
-    PaginationPage
+    MyApp
   ],
   providers: [
     AuthGuard,

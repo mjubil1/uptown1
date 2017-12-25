@@ -1,5 +1,4 @@
-import { Injectable, /*ViewChild*/ } from '@angular/core';
-//import { Observable } from 'rxjs/Observable'; 
+import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -9,9 +8,9 @@ import 'rxjs/add/operator/switchMap';
 export class AuthService {
 
   constructor(private afAuth: AngularFireAuth,
-              public jwtHelper: JwtHelperService
+              public jwtHelper: JwtHelperService,
               ) 
-  {}
+  { }
 
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
