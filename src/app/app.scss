@@ -15,9 +15,12 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-ion-button 
+@font-face 
 {
-    background-color: red;
+    font-family: HelveticaNeue-Medium;
+    src: url('    ../../assets/fonts/helveticaneue/HelveticaNeue Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 
