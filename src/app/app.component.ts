@@ -8,13 +8,14 @@ import { PaginationPage } from '../pages/pagination/pagination';
 import { RedeemPage } from '../pages/redeem/redeem';
 import { SettingPage } from '../pages/setting/setting';
 import { AuthService } from '../services/auth.service';
-
+import { RegisterPage } from '../pages/register/register';
+  
 @Component({
   templateUrl: 'app.html'
 })          
 export class MyApp {
 
-  rootPage:any = PaginationPage;  
+  rootPage:any = RegisterPage;  
   homePage = HomePage;
   redeemPage = RedeemPage;
   settingPage = SettingPage;

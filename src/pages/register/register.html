@@ -2,12 +2,18 @@
     
         <!-- Registration layout -->
         <form #myForm="ngForm" (ngSubmit)="onSignUp(myForm)">
-          <div class="photo">
-            <a href="">
-              <ion-icon name="ios-camera-outline"></ion-icon>
-            </a>
+          <div class="parent-div">
+            <div class="photo">
+              <div class="child-child-div">
+                <a href="">
+                  <i class="icon camera">
+                    <ion-icon name="ios-camera-outline"></ion-icon>
+                  </i>
+                </a>
+              </div>
+            </div>
           </div>
-          <ion-list class="wrapper">
+          <ion-list>
             <ion-item class="item item-trns" id="item1">
                 <ion-input type="text"
                            name="fName"
