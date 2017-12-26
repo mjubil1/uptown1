@@ -1,10 +1,5 @@
 page-home {
-
-    [text-color="txt-color"]
-    {
-        color: white;
-    }  
- 
+     
     //Used to move the pager dots around.
     div.swiper-pagination 
     {
@@ -28,9 +23,16 @@ page-home {
         background: linear-gradient(to bottom, rgba(133,133,133,.6), rgba(0,0,0,.25));
     }
 
+    .custom-icon
+    {
+        border: 1px solid #FFFFFF;
+        border-radius: 50%;
+        font-size: 14px;
+        color: #FFFFFF; //defines color of help icon
+    }
+
     //Used to change the colors of the ion-slides pager dots.
     .swiper-pagination {
-        padding: 3px;
         bottom:0px;
         .swiper-pagination-bullet {
             background: gold;
@@ -41,5 +43,10 @@ page-home {
     .toolbar-background
     {
         background: linear-gradient(to top, rgba(133,133,133,.2), rgba(0,0,0,.8));
+    }
+
+    .toolbar-title-ios 
+    {
+        color: #FFFFFF;
     }
 }

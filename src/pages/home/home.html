@@ -9,7 +9,9 @@
     <ion-title text-color="txt-color">Welcome</ion-title>
     <ion-buttons end>
       <button ion-button icon-only>
-        <ion-icon name="ios-help-outline"></ion-icon>
+        <i class="icon custom-icon">
+          <ion-icon name="ios-help-outline"></ion-icon>
+        </i>  
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -17,17 +19,37 @@
 
 <ion-content padding class="body">
   <ion-slides pager="true">
+    <div class="slide-photo">
+      <p>Page 1</p>
+      <img src="../../assets/img/uptown.png" alt="Page 1"
+           style="width: 50%;
+                  height: 20%;">
+    </div>
     <ion-slide>
-     <p>Top Moves</p>
+    <p>Top Moves</p>
     </ion-slide>
+    <div  class="slide-photo">
+        <p>Page 2</p>        
+        <img src="../../assets/img/uptown.png" alt="Page 2"
+             style="width: 50%;
+                    height: 20%;">
+    </div>
     <ion-slide>
       <p>Your Favorite Moves</p>
     </ion-slide>
+    <div  class="slide-photo">
+        <p>Page 3</p>        
+        <img src="../../assets/img/uptown.png" alt="Page 3">
+    </div>
     <ion-slide>
       <p>This Week's Top Deals</p>
     </ion-slide>
+    <div  class="slide-photo">
+        <p>Page 4</p>        
+        <img src="../../assets/img/uptown.png" alt="Page 4">
+    </div>
     <ion-slide>
         
     </ion-slide>
-  </ion-slides>
+  </ion-slides>  
 </ion-content>

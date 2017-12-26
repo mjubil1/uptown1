@@ -14,7 +14,7 @@ import { AuthService } from '../services/auth.service';
 })          
 export class MyApp {
 
-  rootPage:any = HomePage;  
+  rootPage:any = PaginationPage;  
   homePage = HomePage;
   redeemPage = RedeemPage;
   settingPage = SettingPage;

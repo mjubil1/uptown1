@@ -15,9 +15,9 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-ion-content
+ion-button 
 {
-    overflow:hidden;
+    background-color: red;
 }
 
 
@@ -42,6 +42,7 @@ ion-content
     background: linear-gradient(to bottom, rgba(133,133,133,1), rgba(0,0,0,.25)), url("../assets/img/loginBackground.png");        
     height: 100%;
 }
+
 
 .s-btn
 {
