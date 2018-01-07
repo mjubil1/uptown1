@@ -74,14 +74,18 @@
                                name="conPwd"
                                #conpwd = "ngModel" 
                                ngModel
+<<<<<<< HEAD
                                placeholder="CONFIRM PASSOWRD"
+=======
+                               placeholder="CONFIRM PASSWORD"                               
+>>>>>>> 71abee1eac8787fa4cdc330921d54ec06806ff8b
                                required></ion-input>
                 </ion-item>
                 <div [hidden]="conpwd.valid ||(conpwd.pristine && !myForm.submitted)"
                      class="alert-danger">
                 </div>
                 <ion-item class="item item-trns">
-                  <ion-label>GENDER(optional)</ion-label>
+                  <ion-label>GENDER (optional)</ion-label>
                   <ion-select name="gender" ngModel>
                     <ion-option value="female">Male</ion-option>
                     <ion-option value="male">Female</ion-option>
@@ -92,8 +96,8 @@
       
           <!-- Sign up button-->
           <div padding>
-            <button ion-button type="submit" class="signUp" id="bold"
-                    [disabled]="!myForm.form.valid">Sign up</button>
-          </div>
+              <button  class="signUp" type="submit"  id="bold">Sign up</button>
+            <!-- [disabled]="!myForm.form.valid" **was removed**-->
+            </div>
         </form >
   </ion-content>
