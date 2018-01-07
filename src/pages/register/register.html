@@ -15,64 +15,70 @@
           </div>
           <ion-list>
             <ion-item class="item item-trns" id="item1">
-                <ion-input type="text"
+                <ion-input
+                           type="text"
                            name="fName"
                            #fname = "ngModel" 
                            ngModel
                            placeholder="FIRST NAME"
                            required></ion-input>
             </ion-item>
-            <div [hidden]="fname.valid || fname.pristine"
+            <div [hidden]="fname.valid || (fname.pristine && !myForm.submitted)"
                  class="alert-danger">
               This is required
             </div>
             <ion-item class="item item-trns">
-              <ion-input type="text" 
+              <ion-input 
+                         type="text" 
                          name="lName"
                          #lname = "ngModel" 
                          ngModel
                          placeholder="LAST NAME"                         
                          required></ion-input>
             </ion-item>
-          <div [hidden]="lname.valid || lname.pristine"
+          <div [hidden]="lname.valid || (lname.pristine && !myForm.submitted)"
                 class="alert-danger">
             This is required
           </div>
           <ion-item class="item item-trns">
-            <ion-input type="email"
+            <ion-input 
+                       type="email"
                        name="usrEmail"
                        #myEmail = "ngModel" 
                        ngModel
-                       placeholder="EMAIL"                       
+                       placeholder="EMAIL"
+                       pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"                       
                        required></ion-input>
-                </ion-item>
-                <div [hidden]="myEmail.valid || myEmail.pristine"
+          </ion-item>
+
+                <div [hidden]="myEmail.valid || (myEmail.pristine && !myForm.submitted)"
                      class="alert-danger">
-                  This is required
+                  
                 </div>
                 <ion-item class="item item-trns">
-                    <ion-input type="password"
+                    <ion-input 
+                               type="password"
                                name="pwd"
                                #pwd = "ngModel" 
                                ngModel
-                               placeholder="PASSWORD"                               
+                               placeholder="PASSWORD"
                                required></ion-input>
                 </ion-item>
-                <div [hidden]="pwd.valid || pwd.pristine"
+                <div [hidden]="pwd.valid || (pwd.pristine && !myForm.submitted)"
                      class="alert-danger">
-                  This is required
+                  This is required 
                 </div>
                 <ion-item class="item item-trns">
-                    <ion-input type="password" 
+                    <ion-input 
+                               type="password" 
                                name="conPwd"
                                #conpwd = "ngModel" 
                                ngModel
-                               placeholder="CONFIRM PASSOWRD"                               
+                               placeholder="CONFIRM PASSOWRD"
                                required></ion-input>
                 </ion-item>
-                <div [hidden]="conpwd.valid || conpwd.pristine"
+                <div [hidden]="conpwd.valid ||(conpwd.pristine && !myForm.submitted)"
                      class="alert-danger">
-                  This is required
                 </div>
                 <ion-item class="item item-trns">
                   <ion-label>GENDER(optional)</ion-label>

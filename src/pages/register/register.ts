@@ -5,23 +5,21 @@ import { AuthService } from "../../services/auth.service";
 import { LoginPage } from '../login/login';
 import { LoadingController, AlertController } from "ionic-angular";
 import { NgForm } from '@angular/forms';
-//import { Observable } from 'rxjs/Observable';
+
 
 @IonicPage()
 @Component({
   selector: 'page-register',
   templateUrl: 'register.html',
 }) 
-export class RegisterPage implements OnInit {
 
+export class RegisterPage implements OnInit {
+  
   constructor(private alertCtrl: AlertController,
               private authService: AuthService,
               private loadingCtrl: LoadingController,
               public navCtrl: NavController, 
               public navParams: NavParams) {}
-  
-  //ViewChild - To get access to a component and its methods, we can use @ViewChild decorator
-  
   
   ngOnInit() {
   
