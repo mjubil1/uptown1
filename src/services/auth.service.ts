@@ -13,7 +13,6 @@ export class AuthService {
   {
     return this.afAuth.auth.createUserWithEmailAndPassword(email,password)
     .then((authData) => {
-    
       //Gets reference to Firebase's database and sets user data in database.
       let ref = firebase.database().ref('user').push();
       let uid = ref.key;
@@ -26,7 +25,6 @@ export class AuthService {
         gender: gender
       });
 
-      
     }).catch(function(error){
 
     });

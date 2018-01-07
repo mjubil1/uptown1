@@ -35,6 +35,7 @@ export class RegisterPage implements OnInit {
     this.authService.signUp(form.value.fName,form.value.lName,form.value.usrEmail,form.value.pwd,form.value.gender)
       .then(
         data => {
+          console.log("Gender ",form.value.gender);
           loading.dismiss();
           this.navCtrl.push(LoginPage);  
         })
@@ -47,7 +48,7 @@ export class RegisterPage implements OnInit {
             buttons:['Ok']
           })
           alert.present();
-        });
+        }) ;
     }
 }
 
