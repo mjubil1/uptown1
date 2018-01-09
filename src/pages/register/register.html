@@ -1,85 +1,85 @@
 <ion-content padding>
-        <!-- Registration layout -->
-        <form [formGroup]="form" (ngSubmit)="onSignUp(form.value)">
-          <div class="parent-div">
-            <div class="photo">
-              <div class="child-child-div">
-                <a href="">
-                  <i class="icon camera">
-                    <ion-icon name="ios-camera-outline"></ion-icon>
-                  </i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <ion-list>
-            <ion-item class="item item-trns" id="item1">
-                <ion-input
-                           type="text"
-                           name="firstname"
-                           formControlName="firstname"
-                           placeholder="FIRST NAME">
-                </ion-input>
-            </ion-item>
-            <div *ngIf="form.controls.firstname.invalid && (form.controls.firstname.dirty || form.controls.firstname.touched)">
-              <p class="alert-danger">First name is required</p>
-            </div> 
-            <ion-item class="item item-trns">
-              <ion-input 
-                         type="text"  
-                         name="lastname"
-                         formControlName="lastname"
-                         placeholder="LAST NAME">                        
-              </ion-input>
-            </ion-item>
-            <div *ngIf="form.controls.lastname.invalid && (form.controls.lastname.dirty || form.controls.lastname.touched)">
-              <p class="alert-danger">Last name is required</p>
-            </div>
-            <ion-item class="item item-trns">
-              <ion-input 
-                        type="email"
-                        name="email"
-                        formControlName="email"
-                        placeholder="EMAIL">
-              </ion-input>
-            </ion-item>
-            <div *ngIf="form.controls.email.invalid && (form.controls.email.dirty || form.controls.email.touched)">
-              <p class="alert-danger">Email is required</p>
-            </div>
-            <ion-item class="item item-trns">
-              <ion-input 
-                        type="password"
-                        name="password"
-                        formControlName="password"
-                        placeholder="PASSWORD">
-              </ion-input>
-            </ion-item>
-            <div *ngIf="form.controls.password.invalid && (form.controls.password.dirty || form.controls.password.touched)">
-              <p class="alert-danger">Password is required(minimum length: 6)</p>
-            </div>
-            <ion-item class="item item-trns">
-              <ion-input
-                        type="password" 
-                        name="confirmPassword"
-                        formControlName="confirmPassword"
-                        placeholder="CONFIRM PASSWORD">
-              </ion-input>
-            </ion-item>
-            <div *ngIf="form.controls.confirmPassword.invalid && (form.controls.confirmPassword.dirty || form.controls.confirmPassword.touched)">
-              <p *ngIf="cpwd.hasError('invalid')" class="alert-danger">Password doesn't match</p>
-            </div>
-            <ion-item class="item item-trns">
-              <ion-label>GENDER (optional)</ion-label>
-              <ion-select name="gender" formControlName="gender">
-                <ion-option value="female">Male</ion-option>
-                <ion-option value="male">Female</ion-option>
-              </ion-select>           
-            </ion-item>            
-          </ion-list>      
-      
-          <!-- Sign up button-->
-          <div padding>
-              <button  class="signUp" type="submit"  id="bold" [disabled]="form.invalid">Sign up</button>
-          </div>
-        </form >
-  </ion-content>
+  <!-- Registration layout -->
+  <form [formGroup]="form" (ngSubmit)="onSignUp(form.value)">
+    <div class="parent-div">
+      <div class="photo">
+        <div class="child-child-div">
+          <a href="">
+            <i class="icon camera">
+              <ion-icon name="ios-camera-outline"></ion-icon>
+            </i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <ion-list>
+      <ion-item class="item item-trns" id="item1">
+          <ion-input
+                      type="text"
+                      name="firstname"
+                      formControlName="firstname"
+                      placeholder="FIRST NAME">
+          </ion-input>
+      </ion-item>
+      <div *ngIf="form.controls.firstname.invalid && (form.controls.firstname.dirty || form.controls.firstname.touched)">
+        <p class="alert-danger">First name is required</p>
+      </div> 
+      <ion-item class="item item-trns">
+        <ion-input 
+                    type="text"  
+                    name="lastname"
+                    formControlName="lastname"
+                    placeholder="LAST NAME">                        
+        </ion-input>
+      </ion-item>
+      <div *ngIf="form.controls.lastname.invalid && (form.controls.lastname.dirty || form.controls.lastname.touched)">
+        <p class="alert-danger">Last name is required</p>
+      </div>
+      <ion-item class="item item-trns">
+        <ion-input 
+                  type="email"
+                  name="email"
+                  formControlName="email"
+                  placeholder="EMAIL">
+        </ion-input>
+      </ion-item>
+      <div *ngIf="form.controls.email.invalid && (form.controls.email.dirty || form.controls.email.touched)">
+        <p class="alert-danger">Email is required</p>
+      </div>
+      <ion-item class="item item-trns">
+        <ion-input 
+                  type="password"
+                  name="password"
+                  formControlName="password"
+                  placeholder="PASSWORD">
+        </ion-input>
+      </ion-item>
+      <div *ngIf="form.controls.password.invalid && (form.controls.password.dirty || form.controls.password.touched)">
+        <p class="alert-danger">Password is required(minimum length: 6)</p>
+      </div>
+      <ion-item class="item item-trns">
+        <ion-input
+                  type="password" 
+                  name="confirmPassword"
+                  formControlName="confirmPassword"
+                  placeholder="CONFIRM PASSWORD">
+        </ion-input>
+      </ion-item>
+      <div *ngIf="form.controls.confirmPassword.invalid && (form.controls.confirmPassword.dirty || form.controls.confirmPassword.touched)">
+        <p *ngIf="cpwd.hasError('invalid')" class="alert-danger">Password doesn't match</p>
+      </div>
+      <ion-item class="item item-trns">
+        <ion-label>GENDER (optional)</ion-label>
+        <ion-select name="gender" formControlName="gender">
+          <ion-option value="female">Male</ion-option>
+          <ion-option value="male">Female</ion-option>
+        </ion-select>           
+      </ion-item>            
+    </ion-list>      
+
+    <!-- Sign up button-->
+    <div padding>
+        <button  class="signUp" type="submit"  id="bold" [disabled]="form.invalid">Sign up</button>
+    </div>
+  </form >
+</ion-content>
