@@ -11,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 import { RegisterPage } from '../pages/register/register';
   
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
 })          
 export class MyApp {
 
