@@ -44,10 +44,6 @@ export class HomePage implements OnInit {
     }
   }
 
-  chartHovered(e:any):void {
-    console.log(e);
-  }
-
   ngOnInit() {
 
   }

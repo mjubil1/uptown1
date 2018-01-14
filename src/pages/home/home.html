@@ -1,6 +1,4 @@
-
-<ion-header class= "navbar">
-  
+<ion-header class= "navbar">  
   <ion-navbar hideBackButton>
     <ion-buttons start>
       <button ion-button icon-only menuToggle>
@@ -12,9 +10,7 @@
     <ion-title text-color="txt-color">Welcome</ion-title>
     <input type="image" id="button" src="../../assets/img/Info _con.png" (click)="somewhere"/>
   </ion-navbar>
-
 </ion-header>
-
 <ion-content padding class="body">
   <ion-slides pager="true">
     <div class="slide-photo">
@@ -25,7 +21,7 @@
                 [chartType]="type"
                 [colors]="colorsOverride"
                 [options]="doughnutChartOptions"
-                (chartHover)="chartHovered($event)">
+                >
         </canvas>
       </div>
     </div>
@@ -33,7 +29,6 @@
       <div class="title">
           <p>Top Moves</p>
       </div>
-    
     </ion-slide>
     <div  class="slide-photo">
         <p>Page 2</p>        
@@ -54,7 +49,6 @@
       <div class="title3">
         <p> Top Deals</p>
       </div>
-      
     </ion-slide>
     <div  class="slide-photo">
         <p>Page 4</p>        
