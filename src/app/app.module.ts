@@ -4,6 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AuthService } from '../services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { Facebook } from '@ionic-native/facebook';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -48,7 +49,8 @@ import { SettingPage } from '../pages/setting/setting';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(fb),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    ChartsModule
   ], 
   bootstrap: [IonicApp],
   entryComponents: [

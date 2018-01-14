@@ -17,10 +17,8 @@ export class AuthService {
     this.afAuth.authState.subscribe((user) => 
     {
       if(user) {
-        console.log("User is signed as ", user);
         this.displayName = user.displayName;
       } else {
-        console.log("User is not signed in");
         this.displayName = " ";
       }
     })
