@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage,NavParams } from 'ionic-angular';
 import { ChartsModule, Color } from 'ng2-charts';
 
@@ -7,21 +7,21 @@ import { ChartsModule, Color } from 'ng2-charts';
   selector: 'page-home',
   templateUrl: 'home.html',
 })
-export class HomePage implements OnInit {
+export class HomePage {
 
   @ViewChild('pointChart') pointChart: ElementRef;
+  count = 50;
+  max = 100;
   
   // Doughnut
-  data:number[] = [650, 300];
+  data:number[] = [this.count, (this.max-this.count)];
   type:string = 'doughnut';
-
 
   colorsOverride: Array<Color> = [{
     backgroundColor: ["rgba(252,215,49, 0.82)", "transparent"],
   }];
 
-  constructor(public navParams: NavParams) {
-  }
+  constructor(public navParams: NavParams) {}
 
   datasets: any[] = [
   {
@@ -44,11 +44,7 @@ export class HomePage implements OnInit {
     }
   }
 
-  ngOnInit() {
-
-  }
-
-  ngAfterViewInit() {
-    let canvas = this.pointChart.nativeElement;
+  ionViewDidEnter() {
+    let ctx = this.pointChart.nativeElement.getContext("2d");
   } 
 }
