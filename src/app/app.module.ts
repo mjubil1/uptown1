@@ -1,8 +1,10 @@
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AuthService } from '../services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { Facebook } from '@ionic-native/facebook';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -46,8 +48,10 @@ import { SettingPage } from '../pages/setting/setting';
     ReactiveFormsModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(fb),
-    AngularFirestoreModule,
-  ],
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    ChartsModule
+  ], 
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -60,10 +64,10 @@ import { SettingPage } from '../pages/setting/setting';
   ],
   providers: [
     AuthService,
+    AngularFireDatabase,
     StatusBar,
     SplashScreen,
     AngularFireAuth,
-    AngularFirestoreModule,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Facebook  
   ]

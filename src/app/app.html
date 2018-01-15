@@ -2,11 +2,11 @@
     <ion-content>
         <div class="background">
             <div class="photo-container">
-                <div id="side-menu-photo">
-                    
+                <div id="side-menu-photo" (click)="takePic()">
+                    <img src="{{ picurl }}" />
                 </div>
                 <div id="side-menu-usrname">
-                    <p>First Last</p>
+                    <p>{{authService.displayName}}</p>
                 </div>
             </div>
             <div class="side-menu-container">

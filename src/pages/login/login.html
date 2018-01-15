@@ -37,25 +37,11 @@
             </div> 
         </form>        
     </div>
-            <!--
-
-            -->
-    <!--Connect With Facebook or Google-->
-
-  <!--  <ion-list class="socialBtn">
-        <button (click)="googleLogin()">
-            <ion-icon name="logo-googleplus"></ion-icon> 
-        </button>
-
-        <button (click)="facebookLogin()">
-            <ion-icon name="logo-facebook"></ion-icon>
-        </button>  
-    </ion-list>-->
 
     <ion-list class="social"> 
    
-         <input type="image" id="button" src="../../assets/img/google_button.png" (click)="googleLogin()"/>
-        <input type="image" id="fbbutton" src="../../assets/img/fb_button.png" (click)="facebookLogin()"/>          
+         <input type="image" id="button" src="../../assets/img/google_button.png" (click)="onGoogleLogin()"/>
+        <input type="image" id="fbbutton" src="../../assets/img/fb_button.png" (click)="onFacebookLogin()"/>          
     </ion-list>
 
 </ion-content>

@@ -15,7 +15,7 @@ function passwordConfirmation(c: AbstractControl): any {
   if (pwd.value !== cpwd.value) {
       return { invalid: true };
 
-}
+  }
 }
 
 @IonicPage()
@@ -51,7 +51,6 @@ export class RegisterPage implements OnInit {
   } 
   
   onSignUp(form) {
-
     const loading = this.loadingCtrl.create({
       content:'Signing you up...'
     });
