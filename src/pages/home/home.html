@@ -1,4 +1,6 @@
-<ion-header class= "navbar">  
+
+<ion-header class= "navbar">
+  
   <ion-navbar hideBackButton>
     <ion-buttons start>
       <button ion-button icon-only menuToggle>
@@ -8,11 +10,26 @@
         </button>
     </ion-buttons>
     <ion-title text-color="txt-color">Welcome</ion-title>
+    <!--<ion-buttons end>
+      <button ion-button icon-only>
+        <i class="icon help">
+          <ion-icon name="ios-help-outline"></ion-icon>
+        </i>  
+      </button>
+    </ion-buttons>-->
     <input type="image" id="button" src="../../assets/img/Info _con.png" (click)="somewhere"/>
   </ion-navbar>
+
 </ion-header>
+
 <ion-content padding class="body">
   <ion-slides pager="true">
+    <div class="slide-photo">
+      <p>Page 1</p>
+      <img src="../../assets/img/uptown.png" alt="Page 1"
+           style="width: 50%;
+                  height: 20%;">
+    </div>
     <ion-slide>
       <div class="slide-photo">
         <div style="display: block;">
@@ -34,6 +51,7 @@
       <div class="title">
           <p>Top Moves</p>
       </div>
+    
     </ion-slide>
     <ion-slide>
       <div  class="slide-photo">      
@@ -61,6 +79,7 @@
       <div class="title3">
         <p> Top Deals</p>
       </div>
+      
     </ion-slide>
     <ion-slide>
       <div  class="slide-photo">

@@ -1,6 +1,6 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage,NavParams } from 'ionic-angular';
-import { ChartsModule, Color } from 'ng2-charts';
+
 
 @IonicPage()
 @Component({
