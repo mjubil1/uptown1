@@ -1,63 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from "../../services/auth.service";
 import { LoginPage } from '../login/login';
 import { LoadingController, AlertController } from "ionic-angular";
-import { AbstractControl, FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-
-function passwordConfirmation(c: AbstractControl): any {
-  if(!c.parent || !c) return;
-  const pwd = c.parent.get('password');
-  const cpwd= c.parent.get('confirmPassword')
-
-  if(!pwd || !cpwd) return ;
-  if (pwd.value !== cpwd.value) {
-      return { invalid: true };
-
-  }
-}
+import { NgForm } from '@angular/forms';
+//import { Observable } from 'rxjs/Observable';
 
 @IonicPage()
 @Component({
   selector: 'page-register',
-  templateUrl: 'register.html',    
+  templateUrl: 'register.html',
 }) 
-
 export class RegisterPage implements OnInit {
-  
-  form: FormGroup;
-
-  get cpwd() {
-    return this.form.get('confirmPassword');
-  }
 
   constructor(private alertCtrl: AlertController,
               private authService: AuthService,
-              private fb: FormBuilder,
               private loadingCtrl: LoadingController,
               public navCtrl: NavController, 
               public navParams: NavParams) {}
-
-  ngOnInit() {
-    this.form = this.fb.group({
-      firstname: ["", Validators.required], 
-      lastname: ["", Validators.required], 
-      email: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required, Validators.minLength(6)]], 
-      confirmPassword: ["", [Validators.required, Validators.minLength(6), passwordConfirmation]],
-      gender:[""]
-    });
-  } 
   
-  onSignUp(form) {
+  //ViewChild - To get access to a component and its methods, we can use @ViewChild decorator
+  
+  
+  ngOnInit() {
+  
+  }
+  
+  onSignUp(form: NgForm) {
     const loading = this.loadingCtrl.create({
       content:'Signing you up...'
     });
     loading.present();
-    this.authService.signUp(this.form.get('firstname').value,this.form.get('lastname').value,this.form.get('email').value,this.form.get('password').value,this.form.get('gender').value)
+    this.authService.signUp(form.value.fName,form.value.lName,form.value.usrEmail,form.value.pwd,form.value.gender)
       .then(
         data => {
+          console.log("Gender ",form.value.gender);
           loading.dismiss();
           this.navCtrl.push(LoginPage);  
         })
@@ -70,6 +48,7 @@ export class RegisterPage implements OnInit {
             buttons:['Ok']
           })
           alert.present();
-        });
+        }) ;
     }
-  }
+}
+
