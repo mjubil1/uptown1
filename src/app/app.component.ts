@@ -15,9 +15,13 @@ import { RegisterPage } from '../pages/register/register';
   templateUrl: 'app.html',
 })          
 
+<<<<<<< HEAD
+  rootPage:any = PaginationPage;  
+=======
 export class MyApp implements OnInit {
 
   rootPage:any = HomePage;  
+>>>>>>> 741080501eccce61874991b2239fd182832b8d77
   homePage = HomePage;
   redeemPage = RedeemPage;
   settingPage = SettingPage;
