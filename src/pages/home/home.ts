@@ -12,6 +12,7 @@ export class HomePage {
 
   @ViewChild('pointChart') pointChart: ElementRef;
   @ViewChild('favMoveChart') favMoveChart: ElementRef;
+  @ViewChild('topMoveChart') topMoveChart: ElementRef;
   count = 100;
   max = 100;
   
@@ -24,14 +25,20 @@ export class HomePage {
   colorsOverride: Array<Color> = [{
     backgroundColor: ["rgba(252,215,49, 0.82)", "transparent"],
   }];
-
   colorsOverride3: Array<Color> = [{
     backgroundColor: ["rgba(252,215,49, 0.82)", "rgba(252,215,49, 0.82)","rgba(252,215,49, 0.82)","rgba(252,215,49, 0.82)","rgba(252,215,49, 0.82)"],
   }];
 
   favMoveLabels = ['Rec Room','Green Turtle','CVP','B-Lounge','Torrent'];
-
+  topMoveLabels = ['Rec Room','Green Turtle','CVP','B-Lounge','Torrent'];
+ 
   constructor(public navParams: NavParams) {}
+  
+  ionViewDidEnter() {
+    this.pointChart  = this.pointChart.nativeElement.getContext("2d");
+    this.topMoveChart = this.topMoveChart.nativeElement.getContext("2d");
+    this.favMoveChart = this.favMoveChart.nativeElement.getContext("2d");
+  }
 
   datasets: any[] = [
   {
@@ -98,7 +105,50 @@ export class HomePage {
   }
   ]
 
-  ionViewDidEnter() {
-    this.favMoveChart = this.favMoveChart.nativeElement.getContext("2d");
+  topMoveChartOptions: any =  {
+    responsize: true,
+    legend: {
+      display: true,
+      fontColor: 'white',
+      position: 'top',
+      labels: {
+        fontColor: 'white',
+        fontFamily: "HelveticaNeue-Medium"
+      }
+    },
+    scales: {
+      yAxes: [{ 
+        barThickness: 20,
+        display: true,
+        ticks: {
+          fontColor: 'yellow',
+          fontFamily: 'HelveticaNeue-Medium',
+          fontSize: '10',
+          barPercentage: 0.8
+        },
+        gridLines: {
+          display: false
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          display: false
+        },
+        gridLines: {
+          display: false
+        }
+      }]
+    }
   }
+  
+  topMoveDatasets: any[] = [
+  {
+    data: [23,21,43,76,43],
+    label: "Women"
+  },
+  {
+    data: [20,12,12,23,43],
+    label: "Men"   
+   }
+  ]
 }
