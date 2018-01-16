@@ -35,6 +35,14 @@
       <div class="title">
           <p>Top Moves</p>
       </div>
+      <canvas
+        #topMoveChart
+        baseChart
+        [datasets]="topMoveDatasets"
+        [chartType]="type3"
+        [labels]="topMoveLabels"
+        [options]="topMoveChartOptions">
+      </canvas> 
     </ion-slide>
     <ion-slide>
       <div  class="slide-photo1">    

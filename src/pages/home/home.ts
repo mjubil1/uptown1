@@ -13,6 +13,7 @@ export class HomePage {
 
   @ViewChild('pointChart') pointChart: ElementRef;
   @ViewChild('favMoveChart') favMoveChart: ElementRef;
+  @ViewChild('topMoveChart') topMoveChart: ElementRef;
   count = 100;
   max = 100;
   
@@ -146,4 +147,15 @@ export class HomePage {
   ionViewDidEnter() {
     this.favMoveChart = this.favMoveChart.nativeElement.getContext("2d");
   }
+  
+  topMoveDatasets: any[] = [
+  {
+    data: [23,21,43,76,43],
+    label: "Women"
+  },
+  {
+    data: [20,12,12,23,43],
+    label: "Men"   
+   }
+  ]
 }
