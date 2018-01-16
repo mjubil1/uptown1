@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import{ HomePage } from '../home/home';
 /**
  * Generated class for the RedeemPage page.
  *
@@ -21,5 +21,9 @@ export class RedeemPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad RedeemPage');
   }
+  onLoad(somewhere){
+    this.navCtrl.push(HomePage); 
+  }
+  
 
 }

@@ -17,7 +17,7 @@ import { RegisterPage } from '../pages/register/register';
 
 export class MyApp implements OnInit {
 
-  rootPage:any = HomePage;  
+  rootPage:any = RedeemPage;  
   homePage = HomePage;
   redeemPage = RedeemPage;
   settingPage = SettingPage;

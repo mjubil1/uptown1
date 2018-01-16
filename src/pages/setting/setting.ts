@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import{ HomePage } from '../home/home';
 /**
  * Generated class for the SettingPage page.
  *
@@ -20,6 +20,9 @@ export class SettingPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingPage');
+  }
+  onLoad(somewhere){
+    this.navCtrl.push(HomePage); 
   }
 
 }

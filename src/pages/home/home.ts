@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage,NavParams } from 'ionic-angular';
+import { IonicPage,NavParams, NavController } from 'ionic-angular';
 import { ChartsModule, Color } from 'ng2-charts';
+import{ RedeemPage } from '../redeem/redeem';
 
 @IonicPage()
 @Component({
@@ -25,9 +26,9 @@ export class HomePage {
   }];
 
   favMoveLabels = ['Rec Room','Green Turtle','CVP','B-Lounge','Torrent'];
-
-  constructor(public navParams: NavParams) {}
-
+//
+  constructor(public navCtrl: NavController,public navParams: NavParams) {}
+//
   datasets: any[] = [
   {
     data: this.data,
@@ -55,4 +56,10 @@ export class HomePage {
   }
   ]
 
+
+  //
+  onLoad(somewhere){
+    this.navCtrl.push(RedeemPage); 
+  }
+  //
 }

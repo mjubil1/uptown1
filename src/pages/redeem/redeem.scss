@@ -44,4 +44,100 @@ page-redeem {
     .icon{
         font-size:22px;
     }
+    .redeem_body{
+        width:90%;
+        height:400px;
+        background-color:#FFFFFF;
+        margin-bottom:20px;
+        border-radius:25px;
+        position:absolute;
+        bottom:-10%;
+        left:5%;
+        
+    }
+   .user_img_portrait
+{
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    height: 160px;
+    width: 160px;
+    position: absolute;
+    top:15%;
+    left:28%
+
+}
+.user_img{
+    background-color:green;
+    border-radius: 50%;
+    height: 145px;
+    width: 145px;
+    position: absolute;
+    top:16%;
+    left:30%;
+    z-index: 999;
+
+}
+.points h6{
+    position:absolute;
+
+    left:6%;
+    top:3%;
+}
+.points p{
+    position: absolute;
+    font-weight:bold;
+    color: #888888;
+    left:12%;
+    top:4%;
+}
+
+.location h6{
+    position: absolute;
+    right:3%;
+    top:3%;
+}
+.location p{
+    position: absolute;
+    color: #888888;
+    font-weight:bold;
+   
+    right:3%;
+    top:4%;
+}
+.redeem_item{
+    width:90px;
+    height:90px;
+    background-color:#D8D8D8;
+    border-radius:25%;
+    position: absolute;
+    top:23%;
+    left:10%;
+
+}
+.redeem_item2{
+    width:90px;
+    height:90px;
+    background-color:red;
+    border-radius:25%;
+    position: absolute;
+    top:23%;
+    left:80%;
+
+}
+.some_bar h6{
+    color:#888888;
+    position:absolute;
+    top: 18%;
+    left:40%
+}
+.header_bar{
+    height:2px;
+    width:90%;
+    background-color:#979797;
+    position:absolute;
+    top:16%;
+    left:5%;
+    
+
+}
 }
