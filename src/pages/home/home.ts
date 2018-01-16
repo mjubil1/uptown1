@@ -22,12 +22,48 @@ export class HomePage {
   type:string = 'doughnut';
   type3:string = 'horizontalBar';
 
+
+
+
+
+
+
+//*************************Original for pointchart color*************************************************** */
   colorsOverride: Array<Color> = [{
+   
     backgroundColor: ["rgba(252,215,49, 0.82)", "transparent"],
+    borderColor:["rgba(252,215,49, 0.82)", "transparent"],
   }];
-  /*colorsOverride: Array<Color> = [{
-    backgroundColor: ["radial-gradient(50% 100%, #FFFD87 23%, #FFFEBB 45%, #FFFE61 3%, #FFFE00 86%)", "transparent"],
-  }];*/
+  //************************************************************************* */
+  //************************What I tried************************************************* */
+
+/*
+   canvas: any = document.getElementById('pointChart');
+   ctx = this.canvas.getContext("2d");
+    
+  gradients: any = this.ctx.createLinearGradient(0, 0, 0, 400);
+   gradients = this.gradients.addColorStop(0, 'rgba(151,187,205,0.7)');   
+   gradients = this.gradients.addColorStop(1, 'rgba(151,187,205,0)');
+  
+   colorsOverride: Array<Color> = [{
+
+    backgroundColor : this.gradients,
+    borderColor : "rgba(151,187,205,1)",
+    
+  }];
+  */
+
+//*************************************** */
+
+
+
+
+
+
+
+
+
+
   colorsOverride3: Array<Color> = [{
     backgroundColor: ["rgba(252,215,49, 0.82)", "rgba(252,215,49, 0.82)","rgba(252,215,49, 0.82)","rgba(252,215,49, 0.82)","rgba(252,215,49, 0.82)"],
   }];
@@ -52,24 +88,52 @@ export class HomePage {
         left: 0,
         right: 0,
         top: 10,
-        bottom: 0
+        bottom: 0 
       }
     }
-  }
+  }  
 
   favMoveChartOptions: any = {
-    maintainAspectRatio: false,
+    responsize: true,
     legend: {
       display: false
     },
     scales: {
-      yAxes: [{ barThickness: 33 }]
+      yAxes: [{ 
+        barThickness: 20,
+        display: true,
+        ticks: {
+          fontColor: 'yellow',
+          fontFamily: 'HelveticaNeue-Medium',
+          fontSize: '10',
+          barPercentage: 0.8
+        },
+        gridLines: {
+          display: false
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          max:100,
+          min:0,
+          stepSize: 20,
+          fontColor: 'white',
+          fontFamily: 'HelveticaNeue-Medium',
+          fontSize: '10',
+          minRotation: '20',
+          barPercentage: 0.8
+        },
+        gridLines: {
+          borderDash: [1,2],
+          color: 'rgba(192,192,192,1)'
+        }
+      }]
     }
   }
 
   favMoveDatasets: any[] = [
   {
-    data: this.data3
+    data: this.data3  
   }
   ]
 
@@ -79,4 +143,7 @@ export class HomePage {
     this.navCtrl.push(RedeemPage); 
   }
   //
+  ionViewDidEnter() {
+    this.favMoveChart = this.favMoveChart.nativeElement.getContext("2d");
+  }
 }
