@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage,NavParams } from 'ionic-angular';
-
+import { ChartsModule, Color } from 'ng2-charts';
 
 @IonicPage()
 @Component({
@@ -50,9 +50,4 @@ export class HomePage {
       }
     }
   }
-
-  ionViewDidEnter() {
-    let ctx = this.pointChart.nativeElement.getContext("2d");
-    let ctx3 = this.favMoveChart.nativeElement.getContext("2d");
-  } 
 }
