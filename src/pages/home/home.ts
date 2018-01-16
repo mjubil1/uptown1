@@ -14,13 +14,17 @@ export class HomePage {
   count = 50;
   max = 100;
   
-  // Doughnut
+  //Data for user's charts 
   data:number[] = [this.count, (this.max-this.count)];
+  data3: number[] = [11,23,32,43,9];
   type:string = 'doughnut';
+  type3:string = 'horizontalBar';
 
   colorsOverride: Array<Color> = [{
     backgroundColor: ["rgba(252,215,49, 0.82)", "transparent"],
   }];
+
+  favMoveLabels = ['Rec Room','Green Turtle','CVP','B-Lounge','Torrent'];
 
   constructor(public navParams: NavParams) {}
 
@@ -33,12 +37,6 @@ export class HomePage {
     
   }];
 
-  favMoveDataset: any[] = [
-    {
-      data: this.data
-    }
-  ]
-
   doughnutChartOptions: any = {
     cutoutPercentage: 80,
     layout: {
@@ -50,4 +48,11 @@ export class HomePage {
       }
     }
   }
+
+  favMoveDatasets: any[] = [
+  {
+    data: this.data3 
+  }
+  ]
+
 }

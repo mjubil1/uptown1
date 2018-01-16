@@ -44,6 +44,19 @@
       <div class="title2">
           <p>Your Favorite Moves</p>
       </div>
+       <canvas #favMoveChart
+               baseChart
+               [datasets]="favMoveDatasets"
+               [chartType]="type3"
+               [labels]="favMoveLabels"
+               [colors]="colorsOverride"
+               [options]="favMoveChartOptions">
+        <div>
+          <p style="text-align: center;
+                    margin-top: 50px;" 
+          >{{this.count}} <br/> pts</p>
+        </div>
+      </canvas>  
     </ion-slide>
     <ion-slide>
       <div  class="slide-photo">    
