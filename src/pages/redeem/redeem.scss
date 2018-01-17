@@ -67,7 +67,8 @@ page-redeem {
 
 }
 .user_img{
-    background-color:green;
+   background-color:green;
+    
     border-radius: 50%;
     height: 145px;
     width: 145px;
@@ -88,13 +89,25 @@ page-redeem {
     font-weight:bold;
     color: #888888;
     left:12%;
-    top:4%;
+    top:6%;
+}
+.points ion-icon{
+    position:absolute;
+    color: black;
+
+    left:12%;
+    top: 0%;
+    font-size: 300%;
+    font-weight: bold;
 }
 
-.location h6{
+.location ion-icon{
     position: absolute;
-    right:3%;
-    top:3%;
+    right:10%;
+    top:1%;
+   color:black;
+  
+    font-size: 200%;
 }
 .location p{
     position: absolute;
@@ -102,7 +115,7 @@ page-redeem {
     font-weight:bold;
    
     right:3%;
-    top:4%;
+    top:6%;
 }
 .redeem_item{
     width:90px;
