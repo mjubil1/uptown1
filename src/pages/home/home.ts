@@ -30,10 +30,11 @@ export class HomePage {
 
 
 //*************************Original for pointchart color*************************************************** */
-  colorsOverride: Array<Color> = [{
-   
-    backgroundColor: ["rgba(252,215,49, 0.82)", "transparent"],
-    borderColor:["rgba(252,215,49, 0.82)", "transparent"],
+
+colorsOverride: Array<Color> = [{
+  
+   backgroundColor: ["rgba(252,215,49, 1)", "transparent"],
+    borderColor:["rgba(252,215,49, 1)", "transparent"],
   }];
   //************************************************************************* */
   //************************What I tried************************************************* */
@@ -52,7 +53,8 @@ export class HomePage {
     borderColor : "rgba(151,187,205,1)",
     
   }];
-  */
+  *///=========================
+  
 
 //*************************************** */
 

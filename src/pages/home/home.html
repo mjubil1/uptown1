@@ -16,7 +16,7 @@
     <ion-slide>
       <div class="slide-photo">
         <div style="display: block;">
-          <canvas #pointChart
+          <div class="chart"><canvas #pointChart
                   baseChart
                   [datasets]="datasets"
                   [chartType]="type"
@@ -28,13 +28,13 @@
                       margin-top: 50px;" 
             >{{this.count}} <br/> pts</p>
           </div>
-        </canvas>
+        </canvas></div>
 
 </div>
     </div>
       <div class="title">
           <p>Top Moves</p>
-      </div>
+      
       <canvas
         #topMoveChart
         baseChart
@@ -43,7 +43,11 @@
         [labels]="topMoveLabels"
         [options]="topMoveChartOptions">
       </canvas> 
+    </div>
     </ion-slide>
+
+
+
     <ion-slide>
       <div  class="slide-photo1">    
         <img src="../../assets/img/beer.png" alt="Page 2"
@@ -51,7 +55,7 @@
       </div>
       <div class="title2">
           <p>Your Favorite Moves</p>
-      </div>
+      
        <canvas
                #favMoveChart
                baseChart
@@ -60,7 +64,8 @@
                [labels]="favMoveLabels"
                [colors]="colorsOverride3"
                [options]="favMoveChartOptions">
-      </canvas>  
+      </canvas> 
+    </div> 
     </ion-slide>
     <ion-slide>
       <div  class="slide-photo2">    
@@ -73,6 +78,10 @@
     <ion-slide>
       <div  class="slide-photo3">
         <img src="../../assets/img/bus.png" alt="Page 4">
+      </div>
+      <div class ="title4">
+        <p>Tiger In Town</p>
+        <img src="../../assets/img/bus_schedule.png" alt="Page 4">
       </div>
     </ion-slide>
   </ion-slides>  

@@ -1,5 +1,5 @@
 page-home {
-     
+   
     //Used to move the pager dots around.
     div.swiper-pagination 
     {
@@ -71,17 +71,26 @@ page-home {
     }
     .title{
         text-align: center; 
+        position:absolute;
+        left: 0%;
+        bottom:16%;
 
     }
     .title2{
         text-align: center;
         margin-top: 35%;
+        position:absolute;
+        left: 0%;
+        bottom:16%;
     }
     .title3{
         text-align: center;
     }
     .title4{
         text-align: center;
+        position:absolute;
+        left: 0%;
+        bottom:5%;
     }
     .navbar{
         //border-width: 10px;
@@ -115,6 +124,10 @@ page-home {
         top:5%;
         right:27%;
     }
+    /*adding stuff*/
+      
+      
+      
 }
 /* Combined Shape: */
 //background-image: radial-gradient(50% 100%, #FFFD87 23%, #FFFEBB 45%, #FFFE61 3%, #FFFE00 86%);
