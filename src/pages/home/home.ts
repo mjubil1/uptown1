@@ -3,6 +3,7 @@ import { IonicPage,NavParams, NavController } from 'ionic-angular';
 import { ChartsModule, Color } from 'ng2-charts';
 import{ RedeemPage } from '../redeem/redeem';
 import { Chart } from 'chart.js';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @IonicPage()
 @Component({
@@ -14,7 +15,9 @@ export class HomePage {
   @ViewChild('pointChart') pointChart: ElementRef;
   @ViewChild('favMoveChart') favMoveChart: ElementRef;
   @ViewChild('topMoveChart') topMoveChart: ElementRef;
-  count = 100;
+  lat: any;
+  long: any;
+  count = 50;
   max = 100;
   
   //Data for user's charts 
@@ -23,56 +26,36 @@ export class HomePage {
   type:string = 'doughnut';
   type3:string = 'horizontalBar';
 
-
-
-
-
-
-
-//*************************Original for pointchart color*************************************************** */
   colorsOverride: Array<Color> = [{
    
-    backgroundColor: ["rgba(252,215,49, 0.82)", "transparent"],
+    backgroundColor: ["rgba(252,215,49, 0.82)"],
     borderColor:["rgba(252,215,49, 0.82)", "transparent"],
   }];
-  //************************************************************************* */
-  //************************What I tried************************************************* */
-
-/*
-   canvas: any = document.getElementById('pointChart');
-   ctx = this.canvas.getContext("2d");
-    
-  gradients: any = this.ctx.createLinearGradient(0, 0, 0, 400);
-   gradients = this.gradients.addColorStop(0, 'rgba(151,187,205,0.7)');   
-   gradients = this.gradients.addColorStop(1, 'rgba(151,187,205,0)');
-  
-   colorsOverride: Array<Color> = [{
-
-    backgroundColor : this.gradients,
-    borderColor : "rgba(151,187,205,1)",
-    
-  }];
-  */
-
-//*************************************** */
-
-
-
-
-
-
-
-
-
 
   colorsOverride3: Array<Color> = [{
     backgroundColor: ["rgba(252,215,49, 0.82)", "rgba(252,215,49, 0.82)","rgba(252,215,49, 0.82)","rgba(252,215,49, 0.82)","rgba(252,215,49, 0.82)"],
   }];
 
   favMoveLabels = ['Rec Room','Green Turtle','CVP','B-Lounge','Torrent'];
-//
-  constructor(public navCtrl: NavController,public navParams: NavParams) {}
-//
+  topMoveLabels = ['Rec Room','Green Turtle','CVP','B-Lounge','Torrent'];
+
+  
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public geolocation: Geolocation) {}
+  
+  ionViewDidEnter() {
+    this.pointChart  = this.pointChart.nativeElement.getContext("2d");
+    this.topMoveChart = this.topMoveChart.nativeElement.getContext("2d");
+    this.favMoveChart = this.favMoveChart.nativeElement.getContext("2d");
+  }
+
+  ionViewDidLoad() {
+    this.geolocation.getCurrentPosition().then( pos =>{
+
+    }).catch(err => console.log(err)); 
+  }
+
   datasets: any[] = [
   {
     data: this.data,
@@ -138,14 +121,44 @@ export class HomePage {
   }
   ]
 
-
-  //
   onLoad(somewhere){
     this.navCtrl.push(RedeemPage); 
   }
-  //
-  ionViewDidEnter() {
-    this.favMoveChart = this.favMoveChart.nativeElement.getContext("2d");
+ 
+  topMoveChartOptions: any =  {
+    responsize: true,
+    legend: {
+      display: true,
+      fontColor: 'white',
+      position: 'top',
+      labels: {
+        fontColor: 'white',
+        fontFamily: "HelveticaNeue-Medium",
+        boxWidth: 15
+      }
+    },
+    scales: {
+      yAxes: [{ 
+        barThickness: 20,
+        display: true,
+        ticks: {
+          fontColor: 'yellow',
+          fontFamily: 'HelveticaNeue-Medium',
+          fontSize: '10'
+        },
+        gridLines: {
+          display: false
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          display: false
+        },
+        gridLines: {
+          display: false
+        }
+      }]
+    }
   }
   
   topMoveDatasets: any[] = [
