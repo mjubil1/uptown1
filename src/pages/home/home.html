@@ -7,7 +7,7 @@
         </i>  
         </button>
     </ion-buttons>
-    <ion-title text-color="txt-color">Welcome {{authService.fname}}</ion-title>
+    <ion-title text-color="txt-color">Welcome, {{authService.fname}}</ion-title>
     <input type="image" id="button" src="../../assets/img/Info _con.png" (click)="onLoad(somewhere)"/>
   </ion-navbar>
 </ion-header>
@@ -19,11 +19,11 @@
       <div class="slide-photo">
         <div style="display: block;">
           <div class="chart"><canvas #pointChart
-                  baseChart
-                  [datasets]="datasets"
-                  [chartType]="type"
-                  [colors]="colorsOverride"
-                  [options]="doughnutChartOptions"
+               baseChart
+               [datasets]="datasets"
+               [chartType]="type"
+               [colors]="colorsOverride"
+               [options]="doughnutChartOptions"
           >
           <div>
             <p style="text-align: center;

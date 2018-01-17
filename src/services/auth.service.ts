@@ -11,7 +11,7 @@ export class AuthService {
   user = firebase.auth().currentUser;
   displayName: string;
   fname: string;
-  ref = firebase.database().ref('user');
+  ref = firebase.database().ref('user'); //references our User table database
 
   constructor(private afAuth: AngularFireAuth,
               private db: AngularFireDatabase) 
@@ -22,8 +22,11 @@ export class AuthService {
         this.displayName = user.displayName;
          this.ref.once('value')
             .then(snapshot => {
-              this.fname = snapshot.child("user/fname").val();
-              console.log("Hello",this.fname); 
+              if(snapshot.child("fname").val() == null) {
+                console.log("nothing there!")
+              } else {
+                  console.log("Something there"); 
+              }
             });
       } else {
         console.log('not logged in');
