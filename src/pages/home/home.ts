@@ -4,6 +4,7 @@ import { ChartsModule, Color } from 'ng2-charts';
 import{ RedeemPage } from '../redeem/redeem';
 import { Chart } from 'chart.js';
 import { Geolocation } from '@ionic-native/geolocation';
+import { AuthService } from '../../services/auth.service';
 
 @IonicPage()
 @Component({
@@ -42,7 +43,8 @@ export class HomePage {
   
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public geolocation: Geolocation) {}
+              public geolocation: Geolocation,
+              public authService: AuthService) {}
   
   ionViewDidEnter() {
     this.pointChart  = this.pointChart.nativeElement.getContext("2d");
@@ -52,7 +54,8 @@ export class HomePage {
 
   ionViewDidLoad() {
     this.geolocation.getCurrentPosition().then( pos =>{
-
+      this.lat = pos.coords.latitude;
+      this.long = pos.coords.longitude;
     }).catch(err => console.log(err)); 
   }
 

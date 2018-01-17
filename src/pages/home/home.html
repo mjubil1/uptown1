@@ -7,13 +7,13 @@
         </i>  
         </button>
     </ion-buttons>
-    <ion-title text-color="txt-color">Welcome</ion-title>
+    <ion-title text-color="txt-color">Welcome {{authService.fname}}</ion-title>
     <input type="image" id="button" src="../../assets/img/Info _con.png" (click)="onLoad(somewhere)"/>
   </ion-navbar>
 </ion-header>
 <ion-content padding class="body">
-  <p>{{ lat }}</p>
-  <p>{{ long }}</p>
+  <p>lat:{{ lat }}</p>
+  <p>long:{{ long }}</p>
   <ion-slides pager="true">
     <ion-slide>
       <div class="slide-photo">

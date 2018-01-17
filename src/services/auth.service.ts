@@ -10,15 +10,23 @@ export class AuthService {
 
   user = firebase.auth().currentUser;
   displayName: string;
-  
+  fname: string;
+  ref = firebase.database().ref('user');
+
   constructor(private afAuth: AngularFireAuth,
               private db: AngularFireDatabase) 
   { 
     this.afAuth.authState.subscribe((user) => 
-    {
+    { 
       if(user) {
         this.displayName = user.displayName;
+         this.ref.once('value')
+            .then(snapshot => {
+              this.fname = snapshot.child("user/fname").val();
+              console.log("Hello",this.fname); 
+            });
       } else {
+        console.log('not logged in');
         this.displayName = " ";
       }
     })
@@ -51,11 +59,8 @@ export class AuthService {
     return this.afAuth.auth.createUserWithEmailAndPassword(email,password)
     .then((authData) => {
 
-      let user = firebase.auth().currentUser;
-      let uid = user.uid;
+      let uid = this.user.uid;
 
-      //Gets reference to Firebase's database and sets user data in database.
-      let ref = firebase.database().ref('user').push();
       let usrData = firebase.database().ref().push().child('user').set({
         uid: uid,
         fname: fname,
@@ -64,14 +69,12 @@ export class AuthService {
         password: password,
         gender: gender
       });
-
     }).then(function() {
-      let user = firebase.auth().currentUser;
 
-      user.updateProfile({
-        displayName: fname + " " +  lname,
-        photoURL: ''
-      })
+        this.user.updateProfile({
+          displayName: fname + " " +  lname,
+          photoURL: ''
+        })
     }).catch(function(error){
 
     });    
