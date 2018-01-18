@@ -4,7 +4,7 @@ import { AlertController,NavController, NavParams, LoadingController } from 'ion
 
 import firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+//import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { AuthService } from "../../services/auth.service";
 //import { Facebook } from '@ionic-native/facebook';
 import { Observable } from 'rxjs/Observable';
@@ -30,7 +30,7 @@ export class LoginPage {
   
   constructor(private loadingCtrl: LoadingController,
               private afAuth: AngularFireAuth,
-              private afs: AngularFirestore,
+              //private afs: AngularFirestore,
               private alertCtrl: AlertController,
               private authService: AuthService,
               public navParams: NavParams,
@@ -39,14 +39,14 @@ export class LoginPage {
   {
 
     // Get auth data, then get firestore user document || null
-    this.user = this.afAuth.authState
+  /*  this.user = this.afAuth.authState
     .switchMap(user => {
       if(user) {
         return this.afs.doc<User>('users/${user.uid}').valueChanges()
       } else {
         return Observable.of(null)
       }
-    })
+    })*/
   }
      
   
@@ -137,7 +137,7 @@ export class LoginPage {
   private updateUserData(user) {
   // Sets user data to firestore on login
               
-  const userRef: AngularFirestoreDocument<User> = this.afs.doc('users/${user.uid}');
+  //const userRef: AngularFirestoreDocument<User> = this.afs.doc('users/${user.uid}');
               
   const data: User = {
     uid: user.uid,
@@ -145,7 +145,7 @@ export class LoginPage {
     displayName: user.displayName
   }
               
-  return userRef.set(data);
+  //return userRef.set(data);
     }
   }            
 
