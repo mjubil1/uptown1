@@ -24,9 +24,8 @@ function passwordConfirmation(c: AbstractControl): any {
 }) 
 
 export class RegisterPage implements OnInit {
-  
   form: FormGroup;
-
+  
   get cpwd() {
     return this.form.get('confirmPassword');
   }
@@ -35,40 +34,35 @@ export class RegisterPage implements OnInit {
               private authService: AuthService,
               private fb: FormBuilder,
               private loadingCtrl: LoadingController,
-              public navCtrl: NavController, 
-              public navParams: NavParams) {}
-
-  ngOnInit() {
-    this.form = this.fb.group({
-      firstname: ["", Validators.required], 
-      lastname: ["", Validators.required], 
-      email: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required, Validators.minLength(6)]], 
-      confirmPassword: ["", [Validators.required, Validators.minLength(6), passwordConfirmation]],
-      gender:[""]
-    });
-  } 
-  
-  onSignUp(form) {
-    const loading = this.loadingCtrl.create({
-      content:'Signing you up...'
-    });
-    loading.present();
-    this.authService.signUp(this.form.get('firstname').value,this.form.get('lastname').value,this.form.get('email').value,this.form.get('password').value,this.form.get('gender').value)
-      .then(
-        data => {
-          loading.dismiss();
-          this.navCtrl.push(LoginPage);  
-        })
-      .catch(
-        error => {
-          loading.dismiss();
-          const alert = this.alertCtrl.create({
-            title:'Singup failed',
-            message: error.message,
-            buttons:['Ok']
-          })
-          alert.present();
-        });
-    }
-  }
+              private navCtrl: NavController, 
+              private navParams: NavParams) {}
+              
+              ngOnInit() {
+                this.form = this.fb.group({
+                  firstname: ["", Validators.required], 
+                  lastname: ["", Validators.required], 
+                  email: ["", [Validators.required, Validators.email]],
+                  password: ["", [Validators.required, Validators.minLength(6)]], 
+                  confirmPassword: ["", [Validators.required, Validators.minLength(6), passwordConfirmation]],
+                  gender:[""]
+                });
+              } 
+              
+              onSignUp(form) {
+                const loading = this.loadingCtrl.create({
+                  content:'Signing you up;)'
+                });
+                loading.present();
+                this.authService.signUp(this.form.get('firstname').value,this.form.get('lastname').value,this.form.get('email').value,this.form.get('password').value,this.form.get('gender').value)
+                .then(
+                  data => {
+                    loading.dismiss();
+                    this.navCtrl.push(LoginPage);  
+                  })
+                  .catch(
+                    error => {
+                      loading.dismiss(); 
+                  
+                    });
+                  }
+                }
