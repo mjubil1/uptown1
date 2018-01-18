@@ -1,5 +1,6 @@
 <ion-content padding>
   <!-- Registration layout -->
+  <div class="some_content">
   <form [formGroup]="form" (ngSubmit)="onSignUp(form.value)">
     <div class="parent-div">
       <div class="photo">
@@ -69,8 +70,8 @@
       <ion-item class="item item-trns">
         <ion-label>GENDER (optional)</ion-label>
         <ion-select name="gender" formControlName="gender">
-          <ion-option value="female">Male</ion-option>
-          <ion-option value="male">Female</ion-option>
+          <ion-option value="female">Female</ion-option>
+          <ion-option value="male">Male</ion-option>
         </ion-select>           
       </ion-item>            
     </ion-list>      
@@ -80,4 +81,5 @@
         <button  class="signUp" type="submit"  id="bold" [disabled]="form.invalid">Sign up</button>
     </div>
   </form >
+</div>
 </ion-content>

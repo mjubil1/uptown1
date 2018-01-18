@@ -17,12 +17,19 @@ page-pagination {
     {
         background-color:#373737;
         width:50%;
+        //position:absolute;
+       // bottom:-5%;
+        //left:0%;
+
     }
 
     #btn2
     {
         background-color: #ECB028;
         width:50%;
+       //position:absolute;
+        //bottom:-5%;
+       // right:0%;
     }
 
     div.swiper-pagination {
@@ -47,7 +54,8 @@ page-pagination {
         //display:block;
         opacity: .85;
         background: linear-gradient(to bottom, rgba(133,133,133,1), rgba(0,0,0,.25)), url("../assets/img/loginBackground.png") no-repeat;
-        background-size:500px 620px;
+        background-size: 100% 100%;
+        //background-size:500px 620px;
         //max-width:100%;
        // max-height:100%;
         //margin-bottom:-30%;
@@ -64,13 +72,16 @@ page-pagination {
     .btn-container .button 
     {
         color: white;
-        padding: 25px 51px;
+        //padding: 25px 51px;
+        padding:9% 9%;
         text-align: center;
         text-decoration: none;
         font-weight: bold;
         display: inline-block;
         font-size: 16px;
-        float: left;
+        float: left; 
+       // position:fixed;
+       // bottom:0%;
     }
 
     .btn-container .button:not(:last-child) {
@@ -80,9 +91,9 @@ page-pagination {
     .btn-container
     {
         width: 100%;
-        position: absolute; 
+       position: absolute; 
         margin: 0 auto;           
-        bottom: 0;
+        bottom: -2%;
     }
 
     .div.btn-container

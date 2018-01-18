@@ -17,14 +17,23 @@ page-register {
         display: inline-block;
         text-align: center;
     }
-
+    ion-select{
+        color:white;
+    }
     ion-content
     { 
         
         position: relative;
         opacity: .75;
         background: linear-gradient(to bottom, rgba(133,133,133,1), rgba(0,0,0,.25)), url("../assets/img/loginBackground.png");
-        background-size:500px 670px;
+        //background-size:500px 670px;
+        background-size: 100% 100%;
+    }
+    .some_content{
+       position:absolute;
+       bottom:18%;
+       left:0%;
+
     }
 
     ion-input[type="text"], ion-input[type="password"],ion-input[type="email"] 

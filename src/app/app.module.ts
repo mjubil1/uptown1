@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { Facebook } from '@ionic-native/facebook';
-//import { Geolocation } from '@ionic-native/geolocation';
+import { Geolocation } from '@ionic-native/geolocation';
 import { ReactiveFormsModule } from '@angular/forms';
 import * as firebase from 'firebase';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
