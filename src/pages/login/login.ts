@@ -4,7 +4,6 @@ import firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from "../../services/auth.service";
 //import { Facebook } from '@ionic-native/facebook';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
 import { HomePage } from '../home/home';

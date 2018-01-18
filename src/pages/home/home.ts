@@ -1,9 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage,NavParams, NavController } from 'ionic-angular';
-import { ChartsModule, Color } from 'ng2-charts';
+import { Color } from 'ng2-charts';
 import{ RedeemPage } from '../redeem/redeem';
-import { Chart } from 'chart.js';
-import { Geolocation } from '@ionic-native/geolocation';
+//import { Geolocation } from '@ionic-native/geolocation';
 import { AuthService } from '../../services/auth.service';
 
 @IonicPage()
@@ -53,10 +52,10 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    this.geolocation.getCurrentPosition().then( pos =>{
+  /*  this.geolocation.getCurrentPosition().then( pos =>{
       this.lat = pos.coords.latitude;
       this.long = pos.coords.longitude;
-    }).catch(err => console.log(err)); 
+    }).catch(err => console.log(err)); */
   }
 
   datasets: any[] = [

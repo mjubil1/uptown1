@@ -1,5 +1,5 @@
 import { Directive, forwardRef, Attribute } from '@angular/core';
-import { NG_VALIDATORS, Validator, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
+import { NG_VALIDATORS, Validator, AbstractControl } from '@angular/forms';
 
 @Directive({
     selector: '[Equalvalidate][formControlName],[formControl],[ngModel]',

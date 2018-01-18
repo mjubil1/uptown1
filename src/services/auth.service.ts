@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import firebase from 'firebase/app';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { FirebaseListObservable } from 'angularfire2/database-deprecated'
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
@@ -13,8 +11,7 @@ export class AuthService {
   fname: string;
   ref = firebase.database().ref('user'); //references our User table database
 
-  constructor(private afAuth: AngularFireAuth,
-              private db: AngularFireDatabase) 
+  constructor(private afAuth: AngularFireAuth) 
   { 
     this.afAuth.authState.subscribe((user) => 
     { 
@@ -57,30 +54,29 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email,password);
   }
 
-  signUp(fname: string, lname: string, email:string, password: string, gender: string) 
-  {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email,password)
-    .then((authData) => {
+signUp(fname: string, lname: string, email:string, password: string, gender: string) 
+{
+  return this.afAuth.auth.createUserWithEmailAndPassword(email,password)
+  .then((authData) => {
 
-      let uid = this.user.uid;
+    let uid = this.user.uid;
 
-      let usrData = firebase.database().ref().push().child('user').set({
-        uid: uid,
-        fname: fname,
-        lname: lname,
-        email: email,
-        password: password,
-        gender: gender
-      });
-    }).then(function() {
+    let usrData = firebase.database().ref().push().child('user').set({
+      uid: uid,
+      fname: fname,
+      lname: lname,
+      email: email,
+      password: password,
+      gender: gender
+    });
+  }).then(function() {
 
-        this.user.updateProfile({
-          displayName: fname + " " +  lname,
-          photoURL: ''
-        })
+      this.user.updateProfile({
+        displayName: fname + " " +  lname,
+        photoURL: ''
+      })
     }).catch(function(error){
-
-    });    
+  });    
   }
 
   private oAuthLogin(provider) 
