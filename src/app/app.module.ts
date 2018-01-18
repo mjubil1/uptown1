@@ -33,7 +33,6 @@ import { SettingPage } from '../pages/setting/setting';
 
   firebase.initializeApp(fb);
 
-
 @NgModule({
   declarations: [
     MyApp,
