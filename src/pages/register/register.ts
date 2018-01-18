@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from "../../services/auth.service";
 import { LoginPage } from '../login/login';
 import { LoadingController, AlertController } from "ionic-angular";
-import { AbstractControl, FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { AbstractControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 function passwordConfirmation(c: AbstractControl): any {
   if(!c.parent || !c) return;

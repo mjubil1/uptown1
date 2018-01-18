@@ -17,9 +17,10 @@ import { RegisterPage } from '../pages/register/register';
 
 export class MyApp implements OnInit {
 
-  rootPage:any = HomePage;  
+  rootPage:any = PaginationPage;  
   homePage = HomePage;
   redeemPage = RedeemPage;
+  registerPage = RegisterPage;
   settingPage = SettingPage;
 
   @ViewChild('nav') nav: NavController;

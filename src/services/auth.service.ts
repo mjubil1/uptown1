@@ -1,24 +1,32 @@
 import { Injectable } from '@angular/core';
 import firebase from 'firebase/app';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { FirebaseListObservable } from 'angularfire2/database-deprecated'
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
 
   user = firebase.auth().currentUser;
   displayName: string;
-  
-  constructor(private afAuth: AngularFireAuth,
-              private db: AngularFireDatabase) 
+  fname: string;
+  ref = firebase.database().ref('user'); //references our User table database
+
+  constructor(private afAuth: AngularFireAuth) 
   { 
     this.afAuth.authState.subscribe((user) => 
-    {
+    { 
       if(user) {
         this.displayName = user.displayName;
+         this.ref.once('value')
+            .then(snapshot => {
+              if(snapshot.child("fname").val() == null) {
+                console.log("nothing there!")
+              } else {
+                  console.log("Something there"); 
+              }
+            });
       } else {
+        console.log('not logged in');
         this.displayName = " ";
       }
     })
@@ -46,35 +54,29 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email,password);
   }
 
-  signUp(fname: string, lname: string, email:string, password: string, gender: string) 
-  {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email,password)
-    .then((authData) => {
+signUp(fname: string, lname: string, email:string, password: string, gender: string) 
+{
+  return this.afAuth.auth.createUserWithEmailAndPassword(email,password)
+  .then((authData) => {
 
-      let user = firebase.auth().currentUser;
-      let uid = user.uid;
+    let uid = this.user.uid;
 
-      //Gets reference to Firebase's database and sets user data in database.
-      let ref = firebase.database().ref('user').push();
-      let usrData = firebase.database().ref().push().child('user').set({
-        uid: uid,
-        fname: fname,
-        lname: lname,
-        email: email,
-        password: password,
-        gender: gender
-      });
+    let usrData = firebase.database().ref().push().child('user').set({
+      uid: uid,
+      fname: fname,
+      lname: lname,
+      email: email,
+      password: password,
+      gender: gender
+    });
+  }).then(function() {
 
-    }).then(function() {
-      let user = firebase.auth().currentUser;
-
-      user.updateProfile({
+      this.user.updateProfile({
         displayName: fname + " " +  lname,
         photoURL: ''
       })
     }).catch(function(error){
-
-    });    
+  });    
   }
 
   private oAuthLogin(provider) 
