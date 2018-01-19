@@ -139,21 +139,32 @@ page-login
         width:25px;
         margin-left:2.5%;
     }
-    .icon{
-        font-size: 20px;
+    .icon {
+        font-size: 25px;
        // padding-right:15px;
         //padding-bottom:10px;
        // padding-top: 10px;
-       
-       
     }
-    .some_class{
+    .icon1{
+
+        //position:absolute;
+       // padding-right:10px;
+        //top:20%;
+        //left:10%
+    }
+    .some_class p{
         color:white;
-        font-size:12px;
+        font-size:13px;
+        position:absolute;
+        right:72%;
+        top: 28%;
         //display:block;
        // margin:auto;
         //padding-left:30px;
-        top:0px;
+        //top:0px;
+        //position:absolute;
+        //left:40%;
+        //top:20%;
         
        
     }

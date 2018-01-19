@@ -1,16 +1,18 @@
 <ion-header class= "navbar">  
   <ion-navbar hideBackButton>
     <ion-buttons start>
-      <button ion-button icon-only menuToggle>
-        <i class="icon menu">
+       
+     <button ion-button icon-only menuToggle>
+        <!--<i class="icon menu">
           <ion-icon class="icon" name="ios-menu-outline" secondary></ion-icon>
-        </i>  
+        </i>-->
+        <input type="image" id="menu" src="../../assets/img/menu_icon2.png" menuToggle/>
         </button>
     </ion-buttons>
-    <ion-title text-color="txt-color">Welcome, {{authService.fname}}</ion-title>
-    <input type="image" id="button" src="../../assets/img/Info _con.png" (click)="onLoad(somewhere)"/>
+    <ion-title text-color="txt-color"><p> Welcome, {{authService.fname}}</p></ion-title>
+    <input type="image" id="button" src="../../assets/img/info_icon2.png" (click)="onLoad(somewhere)"/>
   </ion-navbar>
-</ion-header>
+</ion-header>  
 <ion-content padding class="body">
   <p>lat:{{ lat }}</p>
   <p>long:{{ long }}</p>

@@ -2,13 +2,14 @@
 
   <ion-navbar hideBackButton>
     <ion-buttons start>
-      <button ion-button icon-only menuToggle>
-        <i class="icon menu">
-          <ion-icon class="icon" name="ios-menu-outline"></ion-icon>
-        </i>  
-      </button>
+        <button ion-button icon-only menuToggle>
+            <!--<i class="icon menu">
+              <ion-icon class="icon" name="ios-menu-outline" secondary></ion-icon>
+            </i>-->
+            <input type="image" id="menu" src="../../assets/img/menu_icon2.png" menuToggle/>
+            </button>
     </ion-buttons>
-    <ion-title>Redeem Points</ion-title>
+    <ion-title><p>Redeem Points</p></ion-title>
    <!-- <ion-buttons end>
       <button ion-button icon-only>
         <i class="icon help">
@@ -16,7 +17,7 @@
         </i>
       </button>
     </ion-buttons>-->
-    <input type="image" id="button" src="../../assets/img/Info _con.png" (click)="onLoad(somewhere)"/>
+    <input type="image" id="button" src="../../assets/img/info_icon2.png" (click)="onLoad(somewhere)"/>
   </ion-navbar>
 
 </ion-header>

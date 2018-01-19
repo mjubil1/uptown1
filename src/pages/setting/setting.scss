@@ -3,13 +3,21 @@ page-setting {
     ion-navbar 
     {
         letter-spacing: .10em;
+        height:70px;
     }
 
     .body 
     {
         background: linear-gradient(to bottom, rgba(133,133,133,.6), rgba(0,0,0,.25));
     }
+    ion-navbar p{
 
+        position: absolute;
+        top:30%;
+        left:40%;
+        color:#FFFFFF !important;
+        font-size:18px;
+    }
     .help
     {
         border: 1px solid #FFFFFF;
@@ -34,15 +42,24 @@ page-setting {
     }
     #button{
         
-        height:25px;
-        width:25px;
+        height:30px;
+        width:30px;
         position:absolute;
-        top:27px;
-        right:17px;
+        top:50%;
+        right:5%;
        
     }
     .icon{
         font-size:22px;
+    }
+    #menu{
+        height:18pt;
+        width:30pt;
+        position:absolute;
+        top:25%;
+        left:90%;
+ 
+
     }
     .support_content h2{
         color: #D3D3D3;

@@ -39,26 +39,6 @@ export class HomePage {
   favMoveLabels = ['Rec Room','Green Turtle','CVP','B-Lounge','Torrent'];
   topMoveLabels = ['Rec Room','Green Turtle','CVP','B-Lounge','Torrent'];
 
-<<<<<<< HEAD
-  
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public geolocation: Geolocation,
-              public authService: AuthService) {}
-  
-  ionViewDidEnter() {
-    this.pointChart  = this.pointChart.nativeElement.getContext("2d");
-    this.topMoveChart = this.topMoveChart.nativeElement.getContext("2d");
-    this.favMoveChart = this.favMoveChart.nativeElement.getContext("2d");
-  }
-
-  ionViewDidLoad() {
-   this.geolocation.getCurrentPosition().then( pos =>{
-      this.lat = pos.coords.latitude;
-      this.long = pos.coords.longitude;
-    }).catch(err => console.log(err)); 
-  }
-=======
   constructor(private navCtrl: NavController,
               private navParams: NavParams,
               private geolocation: Geolocation,
@@ -79,7 +59,6 @@ export class HomePage {
             datasets: any[] = [{
               data: this.data,
               backgroundColor: [
->>>>>>> f000a74040abff7d8a4a816ae59bf2144b4bb5d2
 
               ]
             }];
